@@ -8,7 +8,7 @@ import * as api from './api.js';
 const cacheControl = new NodeCache({ stdTTL: 600, checkperiod: 600, deleteOnExpire: true });
 const app = express();
 
-app.use('/', express.static(path.join(process.cwd(), '/static')));
+app.use('/', express.static(path.join('/home/griffith/Projects/kawata-stats', '/static')));
 
 app.get('/card', async function (req, res) {
 	res.set({
@@ -25,6 +25,7 @@ app.get('/card', async function (req, res) {
 		({ userData, avatarBase64, userCoverImage } = cacheControl.get(cacheKey));
 	} else {
 		userData = await api.getUser(username, playmode);
+		console.log(userData)
 		if (userData.error) return res.send(render.getErrorSVG('Error: ' + userData.error));
 		avatarBase64 = await api.getImageBase64(userData.user.avatar_url);
 		userCoverImage = await api.getImage(userData.user.cover_url);
