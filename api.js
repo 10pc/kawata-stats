@@ -33,6 +33,7 @@ export const getUser = async (username, playmode = 'std') => {
     const body = response.body;
 	let $ = cheerio.load(body);
 	const data = JSON.parse($('.js-react--profile-page.osu-layout').attr('data-initial-data'));
+	console.log(data)
 	data.current_mode = playmode;
 	return data;
 }
