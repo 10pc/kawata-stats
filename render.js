@@ -202,19 +202,20 @@ export const getRenderedSVGFull = (data, mode, avatarBase64, userCoverImageBase6
 
 	//等级
 	// until api update, no way of showing level
-	/*templete = templete.replace('{{level}}', getTextSVGPath(textToSVGBold, user.statistics.level.current.toString(), 290, 143, 12, 'center middle'));
+	templete = templete.replace('{{level}}', getTextSVGPath(textToSVGBold, 'NULL', 290, 143, 12, 'center middle'));
+	//user.statistics.level.current.toString()
 	templete = templete.replace(
 		'{{level-percent}}',
-		getTextSVGPath(textToSVGRegular, user.statistics.level.progress + '%', 259.5, 145, 9, 'right top')
+		getTextSVGPath(textToSVGRegular, 'NULL' + '%', 259.5, 145, 9, 'right top') //user.statistics.level.progress
 	);
 	templete = templete.replace(
 		'{{level-bar-fg}}',
 		`<path class="cls-10" d="M20,135a2.5,2.5,0,0,0,2.5,2.5H${clamp(
-			Math.round((user.statistics.level.progress / 100) * (256 - 21) + 21),
+			Math.round((100 / 100) * (256 - 21) + 21), //user.statistics.level.progress
 			21,
 			256
 		)}.833a2.5,2.5,0,0,0,0-5H22.5A2.5,2.5,0,0,0,20,135Z" transform="translate(0 2)" />`
-	);*/
+	);
 
 	//成绩计数
 	const gradesName = ['xh_count', 'x_count', 'sh_count', 's_count', 'a_count'];
@@ -311,10 +312,10 @@ export const getRenderedSVGMini = (data, mode, avatarBase64, userCoverImageBase6
 	//模式
 	templete = templete.replace('{{playmode-icon}}', getPlaymodeSVGMini(data.current_mode, 372, 30, 12));
 
-	//等级
+	//等级 -> replace NULL with user.statistics.level.current.toString()
 	templete = templete.replace(
 		'{{level}}',
-		getTextSVGPath(textToSVGRegular, 'lv.' + user.statistics.level.current.toString(), 369, 31, 10, 'right top')
+		getTextSVGPath(textToSVGRegular, 'lv.' + 'NULL', 369, 31, 10, 'right top')
 	);
 
 	//全球排名
