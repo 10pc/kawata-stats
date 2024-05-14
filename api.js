@@ -3,10 +3,10 @@ import cheerio from 'cheerio';
 
 export const getUser = async (username, playmode = 'std') => {
 	const playmodes = {
-		std: 'osu',
-		taiko: 'taiko',
-		catch: 'fruits',
-		mania: 'mania',
+		std: '4',
+		taiko: '0',
+		catch: '1',
+		mania: '2',
 	}
 	if (!playmodes[playmode]){
 		return {
@@ -17,7 +17,7 @@ export const getUser = async (username, playmode = 'std') => {
 	try {
 		response = await got({
 			method: 'get',
-			url: `https://osu.ppy.sh/users/${username}/${playmodes[playmode]}`,
+			url: `https://api.kawata.pw/v1/get_player_info?name=${username}&scope=all`,
 		});	
 	} catch (error) {
 		if (error.response.statusCode === 404){
@@ -31,11 +31,8 @@ export const getUser = async (username, playmode = 'std') => {
 	}
 	
     const body = response.body;
-	let $ = cheerio.load(body);
-	const data = JSON.parse($('.js-react--profile-page.osu-layout').attr('data-initial-data'));
-	console.log(data)
-	data.current_mode = playmode;
-	return data;
+    let res = JSON.parse(body)
+	return res;
 }
 export const getImage = async (url) => {
 	const response = await got({

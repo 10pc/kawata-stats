@@ -1,0 +1,1770 @@
+<ref *1> PassThrough {
+  _events: {
+    close: undefined,
+    error: [Function: bound onceWrapper] { listener: [Function (anonymous)] },
+    prefinish: [Function: prefinish],
+    finish: undefined,
+    drain: undefined,
+    data: undefined,
+    end: undefined,
+    readable: [Function (anonymous)],
+    unpipe: undefined,
+    aborted: [Function: bound onceWrapper] { listener: [Function (anonymous)] }
+  },
+  _readableState: ReadableState {
+    highWaterMark: 16384,
+    buffer: [],
+    bufferIndex: 0,
+    length: 0,
+    pipes: [],
+    awaitDrainWriters: null,
+    [Symbol(kState)]: 9996040
+  },
+  _writableState: WritableState {
+    highWaterMark: 16384,
+    length: 0,
+    corked: 0,
+    onwrite: [Function: bound onwrite],
+    writelen: 0,
+    bufferedIndex: 0,
+    pendingcb: 0,
+    [Symbol(kState)]: 1091466504,
+    [Symbol(kBufferedValue)]: null
+  },
+  allowHalfOpen: true,
+  _destroy: [Function: destroy],
+  _maxListeners: undefined,
+  _eventsCount: 4,
+  socket: [Getter/Setter],
+  httpVersionMajor: [Getter/Setter],
+  httpVersionMinor: [Getter/Setter],
+  httpVersion: [Getter/Setter],
+  complete: [Getter/Setter],
+  rawHeaders: [Getter/Setter],
+  rawTrailers: [Getter/Setter],
+  joinDuplicateHeaders: [Getter/Setter],
+  aborted: [Getter/Setter],
+  upgrade: [Getter/Setter],
+  url: [Getter/Setter],
+  method: [Getter/Setter],
+  statusCode: [Getter/Setter],
+  statusMessage: [Getter/Setter],
+  client: [Getter/Setter],
+  _consuming: [Getter/Setter],
+  _dumped: [Getter/Setter],
+  req: [Getter/Setter],
+  timings: [Getter/Setter],
+  headers: [Getter/Setter],
+  setTimeout: [Getter/Setter],
+  trailers: [Getter/Setter],
+  requestUrl: 'https://osu.ppy.sh/users/mrekk/osu',
+  redirectUrls: [ 'https://osu.ppy.sh/users/7562902/osu' ],
+  request: Request {
+    _events: {
+      close: undefined,
+      error: [Function],
+      prefinish: undefined,
+      finish: undefined,
+      drain: undefined,
+      data: undefined,
+      end: undefined,
+      readable: undefined,
+      pipe: [Array],
+      unpipe: [Function (anonymous)],
+      response: [Function (anonymous)],
+      retry: [Function],
+      request: [Function (anonymous)],
+      redirect: [Function (anonymous)],
+      uploadProgress: [Function (anonymous)],
+      downloadProgress: [Function (anonymous)],
+      resume: [Function (anonymous)],
+      pause: [Function (anonymous)],
+      aborted: undefined
+    },
+    _readableState: ReadableState {
+      highWaterMark: 0,
+      buffer: [],
+      bufferIndex: 0,
+      length: 0,
+      pipes: [],
+      awaitDrainWriters: null,
+      [Symbol(kState)]: 9996040
+    },
+    _writableState: WritableState {
+      highWaterMark: 0,
+      length: 0,
+      corked: 0,
+      onwrite: [Function: bound onwrite],
+      writelen: 0,
+      bufferedIndex: 0,
+      pendingcb: 0,
+      [Symbol(kState)]: 1091466504,
+      [Symbol(kBufferedValue)]: null
+    },
+    allowHalfOpen: true,
+    _maxListeners: undefined,
+    requestInitialized: true,
+    redirects: [ 'https://osu.ppy.sh/users/7562902/osu' ],
+    retryCount: 0,
+    _progressCallbacks: [],
+    _eventsCount: 11,
+    options: {
+      method: 'GET',
+      retry: [Object],
+      headers: [Object],
+      hooks: [Object],
+      cache: undefined,
+      dnsCache: undefined,
+      decompress: true,
+      throwHttpErrors: true,
+      followRedirect: true,
+      isStream: false,
+      responseType: 'text',
+      resolveBodyOnly: false,
+      maxRedirects: 10,
+      prefixUrl: [Getter/Setter],
+      methodRewriting: true,
+      ignoreInvalidCookies: false,
+      http2: false,
+      allowGetBody: false,
+      https: undefined,
+      pagination: [Object],
+      parseJson: [Function: parseJson],
+      stringifyJson: [Function: stringifyJson],
+      cacheOptions: {},
+      url: URL {},
+      username: '',
+      password: '',
+      shared: undefined,
+      cacheHeuristic: undefined,
+      immutableMinTimeToLive: undefined,
+      ignoreCargoCult: undefined,
+      agent: undefined,
+      request: undefined,
+      timeout: {},
+      [Symbol(isNormalizedAlready)]: true,
+      [Symbol(request)]: [Function: request]
+    },
+    requestUrl: 'https://osu.ppy.sh/users/mrekk/osu',
+    _cannotHaveBody: true,
+    write: [Function: onLockedWrite],
+    end: [Function: onLockedWrite],
+    _noPipe: true,
+    [Symbol(shapeMode)]: true,
+    [Symbol(kCapture)]: false,
+    [Symbol(downloadedSize)]: 273833,
+    [Symbol(uploadedSize)]: 0,
+    [Symbol(serverResponsesPiped)]: Set(0) {},
+    [Symbol(stopReading)]: false,
+    [Symbol(triggerRead)]: true,
+    [Symbol(jobs)]: [],
+    [Symbol(bodySize)]: 0,
+    [Symbol(cancelTimeouts)]: [Function: cancelTimeouts],
+    [Symbol(unproxyEvents)]: [Function (anonymous)],
+    [Symbol(originalResponse)]: IncomingMessage {
+      _events: [Object],
+      _readableState: [ReadableState],
+      _maxListeners: undefined,
+      socket: null,
+      httpVersionMajor: 1,
+      httpVersionMinor: 1,
+      httpVersion: '1.1',
+      complete: true,
+      rawHeaders: [Array],
+      rawTrailers: [],
+      joinDuplicateHeaders: undefined,
+      aborted: false,
+      upgrade: false,
+      url: 'https://osu.ppy.sh/users/7562902/osu',
+      method: null,
+      statusCode: 200,
+      statusMessage: 'OK',
+      client: [TLSSocket],
+      _consuming: true,
+      _dumped: false,
+      req: [ClientRequest],
+      _eventsCount: 2,
+      timings: [Object],
+      emit: [Function (anonymous)],
+      [Symbol(shapeMode)]: true,
+      [Symbol(kCapture)]: false,
+      [Symbol(kHeaders)]: [Object],
+      [Symbol(kHeadersCount)]: 28,
+      [Symbol(kTrailers)]: null,
+      [Symbol(kTrailersCount)]: 0
+    },
+    [Symbol(isFromCache)]: false,
+    [Symbol(responseSize)]: 273833,
+    [Symbol(response)]: [Circular *1],
+    [Symbol(request)]: ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 9,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: true,
+      _last: true,
+      chunkedEncoding: false,
+      shouldKeepAlive: true,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: false,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      strictContentLength: false,
+      _contentLength: 0,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: true,
+      _header: 'GET /users/7562902/osu HTTP/1.1\r\n' +
+        'user-agent: got (https://github.com/sindresorhus/got)\r\n' +
+        'accept-encoding: gzip, deflate, br\r\n' +
+        'Host: osu.ppy.sh\r\n' +
+        'Connection: keep-alive\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'GET',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      joinDuplicateHeaders: undefined,
+      path: '/users/7562902/osu',
+      _ended: true,
+      res: [IncomingMessage],
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: false,
+      host: 'osu.ppy.sh',
+      protocol: 'https:',
+      timings: [Object],
+      emit: [Function (anonymous)],
+      [Symbol(shapeMode)]: false,
+      [Symbol(kCapture)]: false,
+      [Symbol(kBytesWritten)]: 0,
+      [Symbol(kNeedDrain)]: false,
+      [Symbol(corked)]: 0,
+      [Symbol(kChunkedBuffer)]: [],
+      [Symbol(kChunkedLength)]: 0,
+      [Symbol(kSocket)]: [TLSSocket],
+      [Symbol(kOutHeaders)]: [Object: null prototype],
+      [Symbol(errored)]: null,
+      [Symbol(kHighWaterMark)]: 16384,
+      [Symbol(kRejectNonStandardBodyWrites)]: false,
+      [Symbol(kUniqueHeaders)]: null,
+      [Symbol(reentry)]: true
+    },
+    [Symbol(startedReading)]: true
+  },
+  isFromCache: false,
+  ip: '2606:4700:10::6816:4ab4',
+  retryCount: 0,
+  rawBody: <Buffer 3c 21 44 4f 43 54 59 50 45 20 68 74 6d 6c 3e 0a 3c 68 74 6d 6c 20 70 72 65 66 69 78 3d 22 6f 67 3a 20 68 74 74 70 3a 2f 2f 6f 67 70 2e 6d 65 2f 6e 73 ... 273783 more bytes>,
+  body: '<!DOCTYPE html>\n' +
+    '<html prefix="og: http://ogp.me/ns#" lang="en">\n' +
+    '    <head>\n' +
+    '        <link rel="apple-touch-icon" sizes="180x180" href="https://osu.ppy.sh/images/favicon/apple-touch-icon.png">\n' +
+    '<link rel="icon" sizes="32x32" href="https://osu.ppy.sh/images/favicon/favicon-32x32.png">\n' +
+    '<link rel="icon" sizes="16x16" href="https://osu.ppy.sh/images/favicon/favicon-16x16.png">\n' +
+    '<link rel="manifest" href="https://osu.ppy.sh/site.webmanifest">\n' +
+    '<link rel="mask-icon" href="https://osu.ppy.sh/images/favicon/safari-pinned-tab.svg" color="#e2609a">\n' +
+    '<meta name="msapplication-TileColor" content="#603cba">\n' +
+    '<meta name="theme-color" content="hsl(333, 10%, 40%)"> \n' +
+    '\n' +
+    '<meta charset="utf-8">\n' +
+    '<meta name="description" content="Rank (osu): Global #1 | Country #1">\n' +
+    '<meta name="keywords" content="osu, peppy, ouendan, elite, beat, agents, ds, windows, game, taiko, tatsujin, simulator, sim, xna, ddr, beatmania, osu!, osume">\n' +
+    '<meta name="viewport" content="width=device-width, initial-scale=1.0">\n' +
+    '\n' +
+    '<link rel="search" type="application/opensearchdescription+xml" title="osu! search" href="https://osu.ppy.sh/opensearch.xml">\n' +
+    '\n' +
+    '<meta property="og:site_name" content="osu!">\n' +
+    '<meta property="og:type" content="website">\n' +
+    '\n' +
+    '    <meta property="og:url" content="https://osu.ppy.sh/users/7562902/osu">\n' +
+    '\n' +
+    '                        <meta property="og:description" content="Rank (osu): Global #1 | Country #1">\n' +
+    '                                    <meta property="og:image" content="https://a.ppy.sh/7562902?1715295340.png">\n' +
+    '                                    <meta property="og:title" content="mrekk · player info">\n' +
+    '            \n' +
+    '\n' +
+    '<meta name="csrf-param" content="_token">\n' +
+    '<meta name="csrf-token" content="EeckQf7Mcw6n1PRfPDoYC2dAhGl3HJ9hQ8JtE2s2">\n' +
+    '\n' +
+    '<meta name="turbolinks-cache-control" content="no-preview">\n' +
+    '\n' +
+    '\n' +
+    '<link rel="stylesheet" media="all" href="/assets/css/app.ff098fdc.css" data-turbolinks-track="reload">\n' +
+    '\n' +
+    '<script>\n' +
+    '    var currentLocale = "en";\n' +
+    '    var fallbackLocale = "en";\n' +
+    '    var experimentalHost = "lazer.ppy.sh"\n' +
+    '</script>\n' +
+    '\n' +
+    '<script src="/assets/js/runtime.f36610ff.js" data-turbolinks-track="reload"></script>\n' +
+    '<script src="/assets/js/vendor.b719dc74.js" data-turbolinks-track="reload"></script>\n' +
+    '\n' +
+    '<script src="/assets/js/locales/en.f47685c5.js" data-turbolinks-track="reload"></script>\n' +
+    '\n' +
+    '<script src="/assets/js/commons.d234f92e.js" data-turbolinks-track="reload"></script>\n' +
+    '<script src="/assets/js/app.be7849fb.js" data-turbolinks-track="reload"></script>\n' +
+    '\n' +
+    '<script\n' +
+    '    src="/assets/js/moment-locales/en-gb.88e58be3.js"\n' +
+    '    data-turbolinks-track="reload"\n' +
+    '></script>\n' +
+    '\n' +
+    '\n' +
+    '    <link rel="canonical" href="https://osu.ppy.sh/users/7562902/osu">\n' +
+    '\n' +
+    '        <title>mrekk · player info | osu!</title>\n' +
+    '    </head>\n' +
+    '\n' +
+    '    <body\n' +
+    '        class="\n' +
+    '            t-section\n' +
+    '            osu-layout osu-layout--body osu-layout--body-lazer\n' +
+    '            \n' +
+    '        "\n' +
+    '    >\n' +
+    '        <style>\n' +
+    '            :root {\n' +
+    '                --base-hue: 333;\n' +
+    '                --base-hue-deg: 333deg;\n' +
+    '            }\n' +
+    '        </style>\n' +
+    '        <div id="overlay" class="blackout blackout--overlay" style="display: none;"></div>\n' +
+    '        <div class="blackout js-blackout" data-visibility="hidden"></div>\n' +
+    '\n' +
+    '        \n' +
+    '                    <div class="visible-xs no-print js-header--main">\n' +
+    '    <div class="navbar-mobile-before"></div>\n' +
+    '\n' +
+    '    <div class="navbar-mobile" role="navigation">\n' +
+    '        <div class="navbar-mobile__header-section">\n' +
+    '            <a class="navbar-mobile__logo" href="https://osu.ppy.sh"></a>\n' +
+    '            <span class="navbar-mobile__brand u-ellipsis-overflow">\n' +
+    '                player info\n' +
+    '            </span>\n' +
+    '        </div>\n' +
+    '\n' +
+    '        <div class="navbar-mobile__header-section navbar-mobile__header-section--buttons">\n' +
+    '            <button\n' +
+    '                type="button"\n' +
+    '                class="navbar-mobile__toggle js-click-menu"\n' +
+    '                data-click-menu-target="mobile-menu"\n' +
+    '            >\n' +
+    '                <span class="sr-only">Toggle navigation</span>\n' +
+    '                <span class="navbar-mobile__toggle-icon">\n' +
+    '                    <i class="fas fa-chevron-down"></i>\n' +
+    '                </span>\n' +
+    '            </button>\n' +
+    '        </div>\n' +
+    '    </div>\n' +
+    '\n' +
+    '    <div\n' +
+    '        class="mobile-menu js-click-menu u-fancy-scrollbar"\n' +
+    '        data-click-menu-id="mobile-menu"\n' +
+    '    >\n' +
+    '        <div class="mobile-menu__content">\n' +
+    '            <div class="mobile-menu__tabs">\n' +
+    '                                    <button\n' +
+    '                        class="mobile-menu-tab mobile-menu-tab--user js-user-link"\n' +
+    '                    >\n' +
+    '                        <span class="mobile-menu-tab__avatar">\n' +
+    '                            <span class="avatar avatar--full-rounded avatar--guest"></span>\n' +
+    '                        </span>\n' +
+    '\n' +
+    '                        <span class="u-ellipsis-overflow">\n' +
+    '                            sign in / register\n' +
+    '                        </span>\n' +
+    '                    </button>\n' +
+    '                \n' +
+    '                <button class="mobile-menu-tab js-click-menu" data-click-menu-target="mobile-nav">\n' +
+    '                    <span class="fas fa-sitemap"></span>\n' +
+    '                </button>\n' +
+    '\n' +
+    '                            </div>\n' +
+    '\n' +
+    '            <div class="mobile-menu__item js-click-menu" data-click-menu-id="mobile-user">\n' +
+    '                <div class="navbar-mobile-item js-click-menu--close">\n' +
+    '            <a\n' +
+    '            class="js-user-link navbar-mobile-item__main navbar-mobile-item__main--user"\n' +
+    '            href="#"\n' +
+    '            title="click to sign in"\n' +
+    '        >\n' +
+    '            <span class="avatar avatar--guest avatar--navbar-mobile"></span>\n' +
+    '\n' +
+    '            Guest\n' +
+    '        </a>\n' +
+    '    </div>\n' +
+    '            </div>\n' +
+    '\n' +
+    '            <div class="mobile-menu__item js-click-menu" data-click-menu-id="mobile-nav">\n' +
+    '                <div class="navbar-mobile-item">\n' +
+    '        <a\n' +
+    '            data-click-menu-target="nav-mobile-home"\n' +
+    '            class="navbar-mobile-item__main js-click-menu"\n' +
+    '            href="https://osu.ppy.sh"\n' +
+    '        >\n' +
+    '            <span class="navbar-mobile-item__icon navbar-mobile-item__icon--closed">\n' +
+    '                <i class="fas fa-chevron-right"></i>\n' +
+    '            </span>\n' +
+    '\n' +
+    '            <span class="navbar-mobile-item__icon navbar-mobile-item__icon--opened">\n' +
+    '                <i class="fas fa-chevron-down"></i>\n' +
+    '            </span>\n' +
+    '\n' +
+    '            home\n' +
+    '        </a>\n' +
+    '\n' +
+    '        <ul class="navbar-mobile-item__submenu js-click-menu" data-click-menu-id="nav-mobile-home">\n' +
+    '                                                                                <li>\n' +
+    '                    <a\n' +
+    '                        class="navbar-mobile-item__submenu-item js-click-menu--close"\n' +
+    '                        href="https://osu.ppy.sh/home/news"\n' +
+    '                    >\n' +
+    '                        news\n' +
+    '                    </a>\n' +
+    '                </li>\n' +
+    '                                            <li>\n' +
+    '                    <a\n' +
+    '                        class="navbar-mobile-item__submenu-item js-click-menu--close"\n' +
+    '                        href="https://osu.ppy.sh/wiki/en/People/osu%21_team"\n' +
+    '                    >\n' +
+    '                        team\n' +
+    '                    </a>\n' +
+    '                </li>\n' +
+    '                                            <li>\n' +
+    '                    <a\n' +
+    '                        class="navbar-mobile-item__submenu-item js-click-menu--close"\n' +
+    '                        href="https://osu.ppy.sh/home/changelog"\n' +
+    '                    >\n' +
+    '                        changelog\n' +
+    '                    </a>\n' +
+    '                </li>\n' +
+    '                                            <li>\n' +
+    '                    <a\n' +
+    '                        class="navbar-mobile-item__submenu-item js-click-menu--close"\n' +
+    '                        href="https://osu.ppy.sh/home/download"\n' +
+    '                    >\n' +
+    '                        download\n' +
+    '                    </a>\n' +
+    '                </li>\n' +
+    '                                            <li>\n' +
+    '                    <a\n' +
+    '                        class="navbar-mobile-item__submenu-item js-click-menu--close"\n' +
+    '                        href="https://osu.ppy.sh/home/search"\n' +
+    '                    >\n' +
+    '                        search\n' +
+    '                    </a>\n' +
+    '                </li>\n' +
+    '                    </ul>\n' +
+    '    </div>\n' +
+    '    <div class="navbar-mobile-item">\n' +
+    '        <a\n' +
+    '            data-click-menu-target="nav-mobile-beatmaps"\n' +
+    '            class="navbar-mobile-item__main js-click-menu"\n' +
+    '            href="https://osu.ppy.sh/beatmapsets"\n' +
+    '        >\n' +
+    '            <span class="navbar-mobile-item__icon navbar-mobile-item__icon--closed">\n' +
+    '                <i class="fas fa-chevron-right"></i>\n' +
+    '            </span>\n' +
+    '\n' +
+    '            <span class="navbar-mobile-item__icon navbar-mobile-item__icon--opened">\n' +
+    '                <i class="fas fa-chevron-down"></i>\n' +
+    '            </span>\n' +
+    '\n' +
+    '            beatmaps\n' +
+    '        </a>\n' +
+    '\n' +
+    '        <ul class="navbar-mobile-item__submenu js-click-menu" data-click-menu-id="nav-mobile-beatmaps">\n' +
+    '                                            <li>\n' +
+    '                    <a\n' +
+    '                        class="navbar-mobile-item__submenu-item js-click-menu--close"\n' +
+    '                        href="https://osu.ppy.sh/beatmapsets"\n' +
+    '                    >\n' +
+    '                        beatmap listing\n' +
+    '                    </a>\n' +
+    '                </li>\n' +
+    '                                            <li>\n' +
+    '                    <a\n' +
+    '                        class="navbar-mobile-item__submenu-item js-click-menu--close"\n' +
+    '                        href="https://osu.ppy.sh/beatmaps/artists"\n' +
+    '                    >\n' +
+    '                        featured artists\n' +
+    '                    </a>\n' +
+    '                </li>\n' +
+    '                                            <li>\n' +
+    '                    <a\n' +
+    '                        class="navbar-mobile-item__submenu-item js-click-menu--close"\n' +
+    '                        href="https://osu.ppy.sh/beatmaps/packs"\n' +
+    '                    >\n' +
+    '                        beatmap packs\n' +
+    '                    </a>\n' +
+    '                </li>\n' +
+    '                    </ul>\n' +
+    '    </div>\n' +
+    '    <div class="navbar-mobile-item">\n' +
+    '        <a\n' +
+    '            data-click-menu-target="nav-mobile-rankings"\n' +
+    '            class="navbar-mobile-item__main js-click-menu"\n' +
+    '            href="https://osu.ppy.sh/rankings/osu/performance"\n' +
+    '        >\n' +
+    '            <span class="navbar-mobile-item__icon navbar-mobile-item__icon--closed">\n' +
+    '                <i clas'... 263533 more characters,
+  [Symbol(shapeMode)]: true,
+  [Symbol(kCapture)]: false,
+  [Symbol(kCallback)]: null
+}
+> const body = response.body;
+undefined
+> let $ = cheerio.load(body);
+undefined
+> const data = JSON.parse($('.js-react--profile-page.osu-layout').attr('data-initial-data'));
+undefined
+> console.log(data)
+{
+  achievements: [
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-mappersguild-07.png',
+      id: 265,
+      name: "Mappers' Guild Pack VII",
+      grouping: 'Beatmap Challenge Packs',
+      ordering: 6,
+      slug: 'all-packs-mappersguild-07',
+      description: 'A new set of vibrant challenges to overcome.',
+      mode: null,
+      instructions: "<i>Play all of the Mappers' Guild VII pack, which require no difficulty reduction mods when submitting a score.</i>"
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-mappersguild-08.png',
+      id: 266,
+      name: "Mappers' Guild Pack VIII",
+      grouping: 'Beatmap Challenge Packs',
+      ordering: 6,
+      slug: 'all-packs-mappersguild-08',
+      description: 'Succeed with a chorus of voices.',
+      mode: null,
+      instructions: "<i>Play all of the Mappers' Guild VIII pack, which require no difficulty reduction mods when submitting a score.</i>"
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-muzz.png',
+      id: 284,
+      name: 'MUZZ Pack',
+      grouping: 'Beatmap Challenge Packs',
+      ordering: 6,
+      slug: 'all-packs-muzz',
+      description: 'Break away from the endgame.',
+      mode: null,
+      instructions: '<i>Play all of the MUZZ beatmap pack, which requires no difficulty reduction mods when submitting a score.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-mappersguild-09.png',
+      id: 267,
+      name: "Mappers' Guild Pack IX",
+      grouping: 'Beatmap Challenge Packs',
+      ordering: 6,
+      slug: 'all-packs-mappersguild-09',
+      description: 'This is no subtle change.',
+      mode: null,
+      instructions: "<i>Play all of the Mappers' Guild IX pack, which require no difficulty reduction mods when submitting a score.</i>"
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-ariableyes.png',
+      id: 294,
+      name: "Ariabl'eyeS Pack",
+      grouping: 'Beatmap Challenge Packs',
+      ordering: 6,
+      slug: 'all-packs-ariableyes',
+      description: 'Command the mercurial skies.',
+      mode: null,
+      instructions: "<i>Play all of the Ariabl'eyes beatmap pack, which requires no difficulty reduction mods.</i>"
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-camellia-2.png',
+      id: 247,
+      name: 'Camellia II',
+      grouping: 'Beatmap Challenge Packs',
+      ordering: 6,
+      slug: 'all-packs-camellia-2',
+      description: 'Exit the atmosphere.',
+      mode: null,
+      instructions: '<i>Play all of the Camellia Challenges pack, which requires no difficulty reduction mods active.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-usao.png',
+      id: 308,
+      name: 'USAO Pack',
+      grouping: 'Beatmap Challenge Packs',
+      ordering: 6,
+      slug: 'all-packs-usao',
+      description: 'Now THAT is a showdown.',
+      mode: null,
+      instructions: '<i>Play all of the USAO beatmap pack, which requires no difficulty reduction mods.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-gamer-1.png',
+      id: 7,
+      name: 'Video Game Pack vol.1',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-gamer-1',
+      description: 'A whole pack of video game goodness, done and dusted. Go you!',
+      mode: 'osu',
+      instructions: null
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-rhythm-1.png',
+      id: 8,
+      name: 'Rhythm Game Pack vol.1',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-rhythm-1',
+      description: "Many beats were clicked, but the rhythm isn't over yet.",
+      mode: 'osu',
+      instructions: null
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-internet-1.png',
+      id: 9,
+      name: 'Internet! Pack vol.1',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-internet-1',
+      description: 'Did somebody say something about IRC and ICQ?',
+      mode: 'osu',
+      instructions: null
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-anime-1.png',
+      id: 10,
+      name: 'Anime Pack vol.1',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-anime-1',
+      description: "I-it's not like I'm proud of you or anything..",
+      mode: 'osu',
+      instructions: null
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-motoloid.png',
+      id: 179,
+      name: 'MOtOLOiD',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-motoloid',
+      description: 'Legends made manifest, by the mappers of the Guild.',
+      mode: null,
+      instructions: "<i>Play all of the MOtOLOiD Mapper's Guild pack.</i>"
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-mappersguild-01.png',
+      id: 185,
+      name: "Mappers' Guild Pack I",
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-mappersguild-01',
+      description: 'The first among many to come.',
+      mode: null,
+      instructions: "<i>Complete all of the beatmaps in the Mappers' Guild I pack..</i>"
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-gamer-2.png',
+      id: 11,
+      name: 'Video Game Pack vol.2',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-gamer-2',
+      description: 'The sequel was no match for your skills, obviously.',
+      mode: 'osu',
+      instructions: null
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-anime-2.png',
+      id: 12,
+      name: 'Anime Pack vol.2',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-anime-2',
+      description: 'Truly dedicated to 2D.',
+      mode: 'osu',
+      instructions: null
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-internet-2.png',
+      id: 18,
+      name: 'Internet! Pack vol.2',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-internet-2',
+      description: 'Straight from an albino black sheep. Wait, what?',
+      mode: 'osu',
+      instructions: null
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-rhythm-2.png',
+      id: 19,
+      name: 'Rhythm Game Pack vol.2',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-rhythm-2',
+      description: "You just can't stop the beat.",
+      mode: 'osu',
+      instructions: null
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-cranky.png',
+      id: 189,
+      name: 'Cranky',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-cranky',
+      description: 'The grandfather of rhythm gaming music, brought to life by the mappers of the Guild and guests alike.',
+      mode: null,
+      instructions: '<i>Play all of the Cranky pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-mappersguild-02.png',
+      id: 190,
+      name: "Mappers' Guild Pack II",
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-mappersguild-02',
+      description: 'A variable dream of the future.',
+      mode: null,
+      instructions: "<i>Complete all of the beatmaps in the Mappers' Guild II pack..</i>"
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-gamer-3.png',
+      id: 14,
+      name: 'Video Game Pack vol.3',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-gamer-3',
+      description: 'True dedication to the gaming art.',
+      mode: 'osu',
+      instructions: null
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-anime-3.png',
+      id: 25,
+      name: 'Anime Pack vol.3',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-anime-3',
+      description: 'You did it for the waifus.',
+      mode: 'osu',
+      instructions: null
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-rhythm-3.png',
+      id: 26,
+      name: 'Rhythm Game Pack vol.3',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-rhythm-3',
+      description: 'Everyone knows the classics play better on osu! anyway.',
+      mode: 'osu',
+      instructions: null
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-internet-3.png',
+      id: 27,
+      name: 'Internet! Pack vol.3',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-internet-3',
+      description: "You didn't stumble upon this one, I'm guessing.",
+      mode: 'osu',
+      instructions: null
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-hyun.png',
+      id: 208,
+      name: 'HyuN',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-hyun',
+      description: 'Digital punk goes into overdrive!',
+      mode: null,
+      instructions: '<i>Play all of the HyuN pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-mappersguild-03.png',
+      id: 226,
+      name: "Mappers' Guild Pack III",
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-mappersguild-03',
+      description: 'Sunrise was the end of a very magical night for one very special girl.',
+      mode: null,
+      instructions: "<i>Complete all maps in the Mappers' Guild Pack III.</i>"
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-anime-4.png',
+      id: 34,
+      name: 'Anime Pack vol.4',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-anime-4',
+      description: 'Has your ship not sailed?',
+      mode: 'osu',
+      instructions: null
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-rhythm-4.png',
+      id: 35,
+      name: 'Rhythm Game Pack vol.4',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-rhythm-4',
+      description: 'A click away? More like, right here.',
+      mode: 'osu',
+      instructions: null
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-internet-4.png',
+      id: 36,
+      name: 'Internet! Pack vol.4',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-internet-4',
+      description: 'Must... have... more... memes...',
+      mode: 'osu',
+      instructions: null
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-gamer-4.png',
+      id: 37,
+      name: 'Video Game Pack vol.4',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-gamer-4',
+      description: 'You are Player 1.',
+      mode: 'osu',
+      instructions: null
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-highteamusic.png',
+      id: 191,
+      name: 'High Tea Music',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-highteamusic',
+      description: 'Silently journeying to invade the skies.',
+      mode: null,
+      instructions: "<i>Complete all of the beatmaps in the Mappers' Guild III/High Tea Music pack..</i>"
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-mappersguild-04.png',
+      id: 227,
+      name: "Mappers' Guild Pack IV",
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-mappersguild-04',
+      description: 'This freeway is a sensation and boy, does it love you!',
+      mode: null,
+      instructions: "<i>Complete all maps in the Mappers' Guild Pack IV.</i>"
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-culprate.png',
+      id: 206,
+      name: 'Culprate',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-culprate',
+      description: 'A dream of whispers, light, and things to come.',
+      mode: null,
+      instructions: "<i>Complete all of the beatmaps in the Mappers' Guild IV/Culprate pack.</i>"
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-tieff.png',
+      id: 214,
+      name: 'tieff',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-tieff',
+      description: 'Flow.',
+      mode: null,
+      instructions: '<i>Play all of the tieff pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-icdd.png',
+      id: 213,
+      name: 'Imperial Circus Dead Decadence',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-icdd',
+      description: 'A little kite once sang me a song...',
+      mode: null,
+      instructions: '<i>Play all of the Imperial Circus Dead Decadence pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-mappersguild-05.png',
+      id: 263,
+      name: "Mappers' Guild Pack V",
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-mappersguild-05',
+      description: 'Invisible birdwatching.',
+      mode: null,
+      instructions: "<i>Play all of the Mappers' Guild V pack.</i>"
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-afterparty.png',
+      id: 229,
+      name: 'Afterparty',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-afterparty',
+      description: 'Encore to the core.',
+      mode: null,
+      instructions: '<i>Complete the Afterparty beatmap pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-mappersguild-06.png',
+      id: 264,
+      name: "Mappers' Guild Pack VI",
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-mappersguild-06',
+      description: 'Turn your superpower to hyperdrive!',
+      mode: null,
+      instructions: "<i>Play all of the Mappers' Guild VI pack.</i>"
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-benbriggs.png',
+      id: 230,
+      name: 'Ben Briggs',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-benbriggs',
+      description: 'Chiptunes, Pokemon, oh my!',
+      mode: null,
+      instructions: '<i>Play all of the Ben Briggs pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-carpooltunnel.png',
+      id: 231,
+      name: 'Carpool Tunnel',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-carpooltunnel',
+      description: 'Not to be confused with an injury common to top-end players and people who watch anime.',
+      mode: null,
+      instructions: '<i>Play all of the Carpool Tunnel pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-creo.png',
+      id: 232,
+      name: 'Creo',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-creo',
+      description: 'Dashing geometrically to a beatmap near you.',
+      mode: null,
+      instructions: '<i>Play all of the Creo pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-cysmix.png',
+      id: 233,
+      name: 'cYsmix',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-cysmix',
+      description: 'Dead funky. For real.',
+      mode: null,
+      instructions: '<i>Play all of the cYsmix pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-fractaldreamers.png',
+      id: 234,
+      name: 'Fractal Dreamers',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-fractaldreamers',
+      description: 'Shattered dreams and muted skies never sounded so good.',
+      mode: null,
+      instructions: '<i>Play all of the Fractal Dreamers pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-lukhash.png',
+      id: 235,
+      name: 'LukHash',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-lukhash',
+      description: "There's a ghost in this here machine.",
+      mode: null,
+      instructions: '<i>Play all of the LukHash pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-namirin.png',
+      id: 236,
+      name: '*namirin',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-namirin',
+      description: 'Five colors to make your world sing!',
+      mode: null,
+      instructions: '<i>Play all of the *namirin pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-onumi.png',
+      id: 237,
+      name: 'onumi',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-onumi',
+      description: "There's a lot going on here.",
+      mode: null,
+      instructions: '<i>Play all of the onumi pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-theflashbulb.png',
+      id: 238,
+      name: 'The Flashbulb',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-theflashbulb',
+      description: 'Not merely incandescent.',
+      mode: null,
+      instructions: '<i>Play all of The Flashbulb pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-undeadcorporation.png',
+      id: 239,
+      name: 'Undead Corporation',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-undeadcorporation',
+      description: 'Diversifying underground assets. Literally.',
+      mode: null,
+      instructions: '<i>Play all of the Undead Corporation pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-wispx.png',
+      id: 240,
+      name: 'Wisp X',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-wispx',
+      description: 'Sunset and the moon.',
+      mode: null,
+      instructions: '<i>Play all of the Wisp X pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-camellia-1.png',
+      id: 246,
+      name: 'Camellia I',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-camellia-1',
+      description: 'This is the entrance to the jungle.',
+      mode: null,
+      instructions: '<i>Play all of the Camellia Sets pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-celldweller.png',
+      id: 248,
+      name: 'Celldweller',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-celldweller',
+      description: 'The end of an empire is no obstacle to you.',
+      mode: null,
+      instructions: '<i>Play all of the Celldweller pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-cranky2.png',
+      id: 249,
+      name: 'Cranky II',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-cranky2',
+      description: 'Even crankier than before!',
+      mode: null,
+      instructions: '<i>Play all of the Cranky 2 pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-CuteAnimeGirls.png',
+      id: 250,
+      name: 'Cute Anime Girls',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-CuteAnimeGirls',
+      description: 'Not to be confused with cute flambé grills.',
+      mode: null,
+      instructions: '<i>Play all of the Cute Anime Girls pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-ELFENSJoN.png',
+      id: 251,
+      name: 'ELFENSJoN',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-ELFENSJoN',
+      description: 'A world all of your own.',
+      mode: null,
+      instructions: '<i>Play all of the ELFENSJoN pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-HyperPotions.png',
+      id: 252,
+      name: 'Hyper Potions',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-HyperPotions',
+      description: 'Gain 200 HP.',
+      mode: null,
+      instructions: '<i>Play all of the Hyper Potions pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-KolaKid.png',
+      id: 253,
+      name: 'Kola Kid',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-KolaKid',
+      description: 'Remember, the Earth is counting on you.',
+      mode: null,
+      instructions: '<i>Play all of the Kola Kid pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-leaf.png',
+      id: 254,
+      name: 'LeaF',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-leaf',
+      description: 'Calamity was not in your fortune.',
+      mode: null,
+      instructions: '<i>Play all of the LeaF pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-PandaEyes.png',
+      id: 255,
+      name: 'Panda Eyes',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-PandaEyes',
+      description: 'Embrace the immortal flame.',
+      mode: null,
+      instructions: '<i>Play all of the Panda Eyes pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-PUP.png',
+      id: 256,
+      name: 'PUP',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-PUP',
+      description: 'Finally, some closure.',
+      mode: null,
+      instructions: '<i>Play all of the PUP pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-RickyMontgomery.png',
+      id: 257,
+      name: 'Ricky Montgomery',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-RickyMontgomery',
+      description: 'All hook and sinker.',
+      mode: null,
+      instructions: '<i>Play all of the Ricky Montgomery pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-Rin.png',
+      id: 258,
+      name: 'Rin',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-Rin',
+      description: 'Two minds, and a house full of ghosts.',
+      mode: null,
+      instructions: '<i>Play all of the Rin/Function Phantom pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-S3RL.png',
+      id: 259,
+      name: 'S3RL',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-S3RL',
+      description: "You'll never get any of these out of your head.",
+      mode: null,
+      instructions: '<i>Play all of the S3RL pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-SoundSouler.png',
+      id: 260,
+      name: 'Sound Souler',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-SoundSouler',
+      description: 'Return color to your life.',
+      mode: null,
+      instructions: '<i>Play all of the Sound Souler pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-Teminite.png',
+      id: 261,
+      name: 'Teminite',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-Teminite',
+      description: "It's all about the state of mind.",
+      mode: null,
+      instructions: '<i>Play all of the Teminite pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-VINXIS.png',
+      id: 262,
+      name: 'VINXIS',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-VINXIS',
+      description: 'Staying on track.',
+      mode: null,
+      instructions: '<i>Play all of the VINXIS pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-touhou.png',
+      id: 282,
+      name: 'Touhou Pack',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-touhou',
+      description: "The bamboo isn't the only thing dancing!",
+      mode: null,
+      instructions: '<i>Play all of the Touhou beatmap pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-ginkiha.png',
+      id: 283,
+      name: 'ginkiha Pack',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-ginkiha',
+      description: 'The night stars shine the brightest of all.',
+      mode: null,
+      instructions: '<i>Play all of the ginkiha beatmap pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-vocaloid.png',
+      id: 288,
+      name: 'Vocaloid Pack',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-vocaloid',
+      description: "What's life without a song?",
+      mode: null,
+      instructions: '<i>Play all of the Vocaloid beatmap pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-maduk.png',
+      id: 289,
+      name: 'Maduk Pack',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-maduk',
+      description: 'You took control.',
+      mode: null,
+      instructions: '<i>Play all of the Maduk beatmap pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-aitsuki.png',
+      id: 290,
+      name: 'Aitsuki Nakuru Pack',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-aitsuki',
+      description: "Took part in the Joker's Parade.",
+      mode: null,
+      instructions: '<i>Play all of the Aitsuki Nakuru beatmap pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-omoi.png',
+      id: 295,
+      name: 'Omoi Pack',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-omoi',
+      description: 'A whole new meaning to chill.',
+      mode: null,
+      instructions: '<i>Play all of the Omoi beatmap pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-chill.png',
+      id: 296,
+      name: 'Chill Pack',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-chill',
+      description: "Just vibin'.",
+      mode: null,
+      instructions: '<i>Play all of the Chill beatmap pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-rohi.png',
+      id: 309,
+      name: 'Rohi Pack',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-rohi',
+      description: 'An artifact of true skill.',
+      mode: null,
+      instructions: '<i>Play all of the Rohi beatmap pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/all-packs-drum_and_bass.png',
+      id: 310,
+      name: 'Drum & Bass Pack',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'all-packs-drum_and_bass',
+      description: '727? More like 174, baby!',
+      mode: null,
+      instructions: '<i>Play all of the Drum & Bass beatmap pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/catch-packs-ghostlove.png',
+      id: 335,
+      name: 'in love with a ghost',
+      grouping: 'Beatmap Packs',
+      ordering: 5,
+      slug: 'catch-packs-ghostlove',
+      description: "A quasi-Valentine's story about coffee, cuteness, lonely mornings and laughs.",
+      mode: 'fruits',
+      instructions: '<i>Play all of the in love with a ghost beatmap pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/loved-seasonal-2021-winter.png',
+      id: 311,
+      name: 'Project Loved: Winter 2021',
+      grouping: 'Beatmap Packs',
+      ordering: 6,
+      slug: 'loved-seasonal-2021-winter',
+      description: "You're very welcome for the music.",
+      mode: null,
+      instructions: '<i>Play any of the Project Loved: Winter 2021 beatmap packs.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/loved-seasonal-2022-spring.png',
+      id: 312,
+      name: 'Project Loved: Spring 2022',
+      grouping: 'Beatmap Packs',
+      ordering: 6,
+      slug: 'loved-seasonal-2022-spring',
+      description: 'You promised that foolish heroes would be good for me...',
+      mode: null,
+      instructions: '<i>Play any of the Project Loved: Spring 2022 beatmap packs.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/loved-seasonal-2022-summer.png',
+      id: 313,
+      name: 'Project Loved: Summer 2022',
+      grouping: 'Beatmap Packs',
+      ordering: 6,
+      slug: 'loved-seasonal-2022-summer',
+      description: "Alright, fine. You don't sound like dragonforce.",
+      mode: null,
+      instructions: '<i>Play any of the Project Loved: Summer 2022 beatmap packs.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/loved-seasonal-2022-autumn.png',
+      id: 314,
+      name: 'Project Loved: Autumn 2022',
+      grouping: 'Beatmap Packs',
+      ordering: 6,
+      slug: 'loved-seasonal-2022-autumn',
+      description: "There's a god-ish bee in my damned salad.",
+      mode: null,
+      instructions: '<i>Play any of the Project Loved: Autumn 2022 beatmap packs.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/loved-seasonal-2022-winter.png',
+      id: 315,
+      name: 'Project Loved: Winter 2022',
+      grouping: 'Beatmap Packs',
+      ordering: 6,
+      slug: 'loved-seasonal-2022-winter',
+      description: 'Chasing nightmares in square, alien and propane forms.',
+      mode: null,
+      instructions: '<i>Play any of the Project Loved: Winter 2022 beatmap packs.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/loved-seasonal-2023-spring.png',
+      id: 316,
+      name: 'Project Loved: Spring 2023',
+      grouping: 'Beatmap Packs',
+      ordering: 6,
+      slug: 'loved-seasonal-2023-spring',
+      description: 'Phase one: turn all humans and their fickle souls into orange cordial.',
+      mode: null,
+      instructions: '<i>Play any of the Project Loved: Spring 2023 beatmap pack.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/loved-seasonal-2023-summer.png',
+      id: 325,
+      name: 'Project Loved: Summer 2023',
+      grouping: 'Beatmap Packs',
+      ordering: 6,
+      slug: 'loved-seasonal-2023-summer',
+      description: 'Keep those psychopathic bugs away from my flowers!',
+      mode: null,
+      instructions: '<i>Play any of the Project Loved: Summer 2023 beatmap packs.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/spotlight-2017-01.png',
+      id: 162,
+      name: 'January/February 2017 Spotlight',
+      grouping: 'Beatmap Spotlights',
+      ordering: 7,
+      slug: 'spotlight-2017-01',
+      description: 'Two for the price of one.',
+      mode: null,
+      instructions: '<i>Complete any gamemode version of the January/Feburary Spotlights for 2017.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/spotlight-2017-03.png',
+      id: 163,
+      name: 'March 2017 Spotlight',
+      grouping: 'Beatmap Spotlights',
+      ordering: 7,
+      slug: 'spotlight-2017-03',
+      description: 'March ever onwards.',
+      mode: null,
+      instructions: '<i>Complete any gamemode version of the March Spotlights for 2017.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/spotlight-2017-04.png',
+      id: 164,
+      name: 'April 2017 Spotlight',
+      grouping: 'Beatmap Spotlights',
+      ordering: 7,
+      slug: 'spotlight-2017-04',
+      description: 'Pitch.. WHAT?',
+      mode: null,
+      instructions: '<i>Complete any gamemode version of the April Spotlights for 2017.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/spotlight-2017-05.png',
+      id: 165,
+      name: 'May 2017 Spotlight',
+      grouping: 'Beatmap Spotlights',
+      ordering: 7,
+      slug: 'spotlight-2017-05',
+      description: 'May your accuracy forever be swift and true.',
+      mode: null,
+      instructions: '<i>Complete any gamemode version of the May Spotlights for 2017.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/spotlight-2017-06.png',
+      id: 166,
+      name: 'June 2017 Spotlight',
+      grouping: 'Beatmap Spotlights',
+      ordering: 7,
+      slug: 'spotlight-2017-06',
+      description: 'Innocence destroyed.',
+      mode: null,
+      instructions: '<i>Complete any gamemode version of the June Spotlights for 2017.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/spotlight-2017-07.png',
+      id: 167,
+      name: 'July 2017 Spotlight',
+      grouping: 'Beatmap Spotlights',
+      ordering: 7,
+      slug: 'spotlight-2017-07',
+      description: 'Where it all begins.',
+      mode: null,
+      instructions: '<i>Complete any gamemode version of the July Spotlights for 2017.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/spotlight-2017-08.png',
+      id: 169,
+      name: 'August 2017 Spotlight',
+      grouping: 'Beatmap Spotlights',
+      ordering: 7,
+      slug: 'spotlight-2017-08',
+      description: 'Ah, yes. Something just like this.',
+      mode: null,
+      instructions: '<i>Complete any gamemode version of the August Spotlights for 2017.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/spotlight-2017-09.png',
+      id: 180,
+      name: 'September 2017 Spotlight',
+      grouping: 'Beatmap Spotlights',
+      ordering: 7,
+      slug: 'spotlight-2017-09',
+      description: 'New beginnings, time travelers, and airborne robots. Oh my!',
+      mode: null,
+      instructions: '<i>Complete any gamemode version of the September Spotlights for 2017.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/spotlight-2017-10.png',
+      id: 181,
+      name: 'October 2017 Spotlight',
+      grouping: 'Beatmap Spotlights',
+      ordering: 7,
+      slug: 'spotlight-2017-10',
+      description: 'First, one must distract a punk rock girl. Then, they must put on the radio.',
+      mode: null,
+      instructions: '<i>Complete any gamemode version of the October Spotlights for 2017.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/spotlight-2017-11.png',
+      id: 182,
+      name: 'November 2017 Spotlight',
+      grouping: 'Beatmap Spotlights',
+      ordering: 7,
+      slug: 'spotlight-2017-11',
+      description: 'The end of an era, and the start of something new!',
+      mode: null,
+      instructions: '<i>Complete any gamemode version of the November Spotlights for 2017.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/spotlight-2017-12.png',
+      id: 183,
+      name: 'December 2017 Spotlight',
+      grouping: 'Beatmap Spotlights',
+      ordering: 7,
+      slug: 'spotlight-2017-12',
+      description: 'Impulse to end the year!',
+      mode: null,
+      instructions: '<i>Complete any gamemode version of the December Spotlights for 2017.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/spotlight-2018-01.png',
+      id: 184,
+      name: 'January 2018 Spotlight',
+      grouping: 'Beatmap Spotlights',
+      ordering: 7,
+      slug: 'spotlight-2018-01',
+      description: 'Reality distorts.',
+      mode: null,
+      instructions: '<i>Complete any gamemode version of the January Spotlights for 2018.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/spotlight-2018-02.png',
+      id: 186,
+      name: 'February 2018 Spotlight',
+      grouping: 'Beatmap Spotlights',
+      ordering: 7,
+      slug: 'spotlight-2018-02',
+      description: "Let's jump for dreams of future candy!",
+      mode: null,
+      instructions: '<i>Complete any gamemode version of the February Spotlights for 2018.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/spotlight-2018-03.png',
+      id: 187,
+      name: 'March 2018 Spotlight',
+      grouping: 'Beatmap Spotlights',
+      ordering: 7,
+      slug: 'spotlight-2018-03',
+      description: 'Transport me to Nirvana on the backs of angels!',
+      mode: null,
+      instructions: '<i>Complete any gamemode version of the March Spotlights for 2018.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/spotlight-2018-04.png',
+      id: 188,
+      name: 'April 2018 Spotlight',
+      grouping: 'Beatmap Spotlights',
+      ordering: 7,
+      slug: 'spotlight-2018-04',
+      description: 'A lesson from a DJ: drop kick captivatingly.',
+      mode: null,
+      instructions: '<i>Complete any gamemode version of the April Spotlights for 2018.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/spotlight-2018-summer.png',
+      id: 205,
+      name: 'Summer 2018 Beatmap Spotlights',
+      grouping: 'Beatmap Spotlights',
+      ordering: 8,
+      slug: 'spotlight-2018-summer',
+      description: 'The hottest beatmaps from Summer 2018!',
+      mode: null,
+      instructions: '<i>Play all of the maps from one mode of the Summer 2018 Beatmap Spotlights.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/spotlight-2019-winter.png',
+      id: 209,
+      name: 'Winter 2019 Beatmap Spotlights',
+      grouping: 'Beatmap Spotlights',
+      ordering: 8,
+      slug: 'spotlight-2019-winter',
+      description: 'The chillest beatmaps from Winter 2019!',
+      mode: null,
+      instructions: '<i>Play all of the maps from one mode of the Winter 2019 Beatmap Spotlights.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/spotlight-2020-winter.png',
+      id: 241,
+      name: 'Winter 2020 Beatmap Spotlights',
+      grouping: 'Beatmap Spotlights',
+      ordering: 8,
+      slug: 'spotlight-2020-winter',
+      description: 'The best of Winter 2020 in beatmap form!',
+      mode: null,
+      instructions: '<i>Play all of the maps from one mode of the Winter 2020 Beatmap Spotlights.</i>'
+    },
+    {
+      icon_url: 'https://assets.ppy.sh/medals/web/spotlight-2018-autumn.png',
+      id: 207,
+      name: 'Fall 2018 Beatmap Spotlights',
+      grouping: 'Beatmap Spotlights',
+      ordering: 8,
+      slug: 'spotlight-2018-autumn',
+      description: 'The most fabulous beatmaps from Fall 2018!',
+      mode: null,
+      instructions: '<i>Play all of the maps from one mode of the Fall 2018 Beatmap Spotlights.</i>'
+    },
+    ... 224 more items
+  ],
+  current_mode: 'osu',
+  scores_notice: null,
+  user: {
+    avatar_url: 'https://a.ppy.sh/7562902?1715295340.png',
+    country_code: 'AU',
+    default_group: 'default',
+    id: 7562902,
+    is_active: true,
+    is_bot: false,
+    is_deleted: false,
+    is_online: false,
+    is_supporter: true,
+    last_visit: '2024-05-14T07:56:59+00:00',
+    pm_friends_only: true,
+    profile_colour: null,
+    username: 'mrekk',
+    cover_url: 'https://osu.ppy.sh/images/headers/profile-covers/c4.jpg',
+    discord: null,
+    has_supported: true,
+    interests: null,
+    join_date: '2015-12-13T03:35:49+00:00',
+    location: 'Melbourne',
+    max_blocks: 200,
+    max_friends: 1000,
+    occupation: null,
+    playmode: 'osu',
+    playstyle: null,
+    post_count: 22,
+    profile_order: [
+      'me',
+      'recent_activity',
+      'top_ranks',
+      'historical',
+      'medals',
+      'beatmaps',
+      'kudosu'
+    ],
+    title: null,
+    title_url: null,
+    twitter: 'mrekkosu',
+    website: null,
+    country: { code: 'AU', name: 'Australia' },
+    cover: {
+      custom_url: 'https://assets.ppy.sh/user-profile-covers/7562902/3ec2aadc2008ec95b14a81174dc98a6840401f09715a6df8879866242564dd29.jpeg',
+      url: 'https://osu.ppy.sh/images/headers/profile-covers/c4.jpg',
+      id: '4'
+    },
+    is_admin: false,
+    is_bng: false,
+    is_full_bn: false,
+    is_gmt: false,
+    is_limited_bn: false,
+    is_moderator: false,
+    is_nat: false,
+    is_restricted: false,
+    is_silenced: false,
+    kudosu: { available: 0, total: 0 },
+    account_history: [],
+    active_tournament_banner: null,
+    active_tournament_banners: [],
+    badges: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object]
+    ],
+    comments_count: 0,
+    follower_count: 81562,
+    groups: [],
+    mapping_follower_count: 6374,
+    page: {
+      html: `<div class='bbcode bbcode--profile-page'>Be warned<br /><br /><div class="js-spoilerbox bbcode-spoilerbox"><a class="js-spoilerbox__link bbcode-spoilerbox__link" href="#"><span class="bbcode-spoilerbox__link-icon"></span></a><div class="bbcode-spoilerbox__body">Goalbox:<br />Finish osu</div></div></div>`,
+      raw: 'Be warned\n\n[box=]\nGoalbox:\nFinish osu'
+    },
+    pending_beatmapset_count: 1,
+    previous_usernames: [ 'EliteBrandon365', 'mReKk' ],
+    rank_highest: { rank: 1, updated_at: '2021-04-08T04:48:54Z' },
+    statistics: {
+      count_100: 4285513,
+      count_300: 45217129,
+      count_50: 458184,
+      count_miss: 1793229,
+      level: [Object],
+      global_rank: 1,
+      global_rank_exp: null,
+      pp: 27057.9,
+      pp_exp: 0,
+      ranked_score: 102489170959,
+      hit_accuracy: 97.8146,
+      play_count: 188501,
+      play_time: 8779997,
+      total_score: 649528859890,
+      total_hits: 49960826,
+      maximum_combo: 8749,
+      replays_watched_by_others: 3171133,
+      is_ranked: true,
+      grade_counts: [Object],
+      country_rank: 1,
+      rank: [Object]
+    },
+    support_level: 2,
+    user_achievements: [
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object]
+    ],
+    rank_history: { mode: 'osu', data: [Array] },
+    rankHistory: { mode: 'osu', data: [Array] },
+    unranked_beatmapset_count: 1
+  }
+}

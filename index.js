@@ -25,10 +25,9 @@ app.get('/card', async function (req, res) {
 		({ userData, avatarBase64, userCoverImage } = cacheControl.get(cacheKey));
 	} else {
 		userData = await api.getUser(username, playmode);
-		console.log(userData)
 		if (userData.error) return res.send(render.getErrorSVG('Error: ' + userData.error));
-		avatarBase64 = await api.getImageBase64(userData.user.avatar_url);
-		userCoverImage = await api.getImage(userData.user.cover_url);
+		avatarBase64 = await api.getImageBase64(`https://a.kawata.pw/${userData.player.info.id}`);
+		userCoverImage = await api.getImage(`https://kawata.pw/banners/${userData.player.info.id}`);
 		cacheControl.set(cacheKey, { userData, avatarBase64, userCoverImage });
 	}
 
@@ -63,8 +62,8 @@ app.get('/card', async function (req, res) {
 	};
 
 	const svg = isMini
-		? render.getRenderedSVGMini(userData, avatarBase64, userCoverImageBase64)
-		: render.getRenderedSVGFull(userData, avatarBase64, userCoverImageBase64);
+		? render.getRenderedSVGMini(userData, playmode, avatarBase64, userCoverImageBase64)
+		: render.getRenderedSVGFull(userData, playmode, avatarBase64, userCoverImageBase64);
 	res.send(svg);
 });
 

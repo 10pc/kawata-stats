@@ -158,9 +158,10 @@ const minifySVG = (svg) => {
 		.replace(/\s+/g, ' ')}`;
 };
 
-export const getRenderedSVGFull = (data, avatarBase64, userCoverImageBase64) => {
+export const getRenderedSVGFull = (data, mode, avatarBase64, userCoverImageBase64) => {
 	let templete = getSVGTemplete('full', data.options.language);
-	let user = data.user;
+	let info = data.player.info;
+	let stats = data.player.stats;
 
 	//尺寸
 	templete = templete.replace('{{width}}', data.options.size.width);
@@ -178,11 +179,11 @@ export const getRenderedSVGFull = (data, avatarBase64, userCoverImageBase64) => 
 	templete = replaceRoundAvatarClipPath(data, false, templete);
 
 	//名字
-	templete = templete.replace('{{name}}', getTextSVGPath(textToSVGBold, user.username, 130, 20, 28));
-	let nameWidth = getTextSVGMetrics(textToSVGBold, user.username, 130, 20, 28).width;
+	templete = templete.replace('{{name}}', getTextSVGPath(textToSVGBold, info.name, 130, 20, 28));
+	let nameWidth = getTextSVGMetrics(textToSVGBold, info.name, 130, 20, 28).width;
 	//Support Tag
-	if (user.is_supporter) {
-		templete = templete.replace('{{supporter-tag}}', getSupporterSVG(130 + nameWidth + 10, 24, 22, user.support_level));
+	if (info.donor_end > 0) {
+		templete = templete.replace('{{supporter-tag}}', getSupporterSVG(130 + nameWidth + 10, 24, 22, 2));
 	} else {
 		templete = templete.replace('{{supporter-tag}}', '');
 	}
@@ -192,15 +193,16 @@ export const getRenderedSVGFull = (data, avatarBase64, userCoverImageBase64) => 
 	templete = templete.replace('{{user-cover-base64}}', userCoverImageBase64);
 
 	//国旗和国家名
-	templete = templete.replace('{{flag}}', getFlagSVG(user.country_code, 135, 56, 20));
-	templete = templete.replace('{{country}}', getTextSVGPath(textToSVGRegular, user.country.name, 161, 59.5, 14));
+	templete = templete.replace('{{flag}}', getFlagSVG(info.country, 135, 56, 20));
+	templete = templete.replace('{{country}}', getTextSVGPath(textToSVGRegular, info.country, 161, 59.5, 14));
 
 	//模式
 	templete = templete.replace('{{playmode-icon}}', getPlaymodeSVG(data.current_mode, 130, 88, 15));
 	templete = templete.replace('{{playmode}}', getTextSVGPath(textToSVGRegular, libs.getPlaymodeFullName(data.current_mode), 150, 89, 12));
 
 	//等级
-	templete = templete.replace('{{level}}', getTextSVGPath(textToSVGBold, user.statistics.level.current.toString(), 290, 143, 12, 'center middle'));
+	// until api update, no way of showing level
+	/*templete = templete.replace('{{level}}', getTextSVGPath(textToSVGBold, user.statistics.level.current.toString(), 290, 143, 12, 'center middle'));
 	templete = templete.replace(
 		'{{level-percent}}',
 		getTextSVGPath(textToSVGRegular, user.statistics.level.progress + '%', 259.5, 145, 9, 'right top')
@@ -212,66 +214,66 @@ export const getRenderedSVGFull = (data, avatarBase64, userCoverImageBase64) => 
 			21,
 			256
 		)}.833a2.5,2.5,0,0,0,0-5H22.5A2.5,2.5,0,0,0,20,135Z" transform="translate(0 2)" />`
-	);
+	);*/
 
 	//成绩计数
-	const gradesName = ['ssh', 'ss', 'sh', 's', 'a'];
+	const gradesName = ['xh_count', 'x_count', 'sh_count', 's_count', 'a_count'];
 	let gradeTextX = 360.7;
 	for (let grade of gradesName) {
 		templete = templete.replace(
 			`{{${grade}-count}}`,
-			getTextSVGPath(textToSVGRegular, user.statistics.grade_counts[grade].toString(), gradeTextX, 153, 9, 'center middle')
+			getTextSVGPath(textToSVGRegular, stats[mode].grade.toString(), gradeTextX, 153, 9, 'center middle')
 		);
 		gradeTextX += 38.62;
 	}
 
 	//pp
-	templete = templete.replace('{{pp}}', getTextSVGPath(textToSVGRegular, libs.formatNumber(Math.round(user.statistics.pp)), 20, 202, 13));
+	templete = templete.replace('{{pp}}', getTextSVGPath(textToSVGRegular, libs.formatNumber(Math.round(stats[mode].pp)), 20, 202, 13));
 
 	//奖章
-	templete = templete.replace('{{medals}}', getTextSVGPath(textToSVGRegular, libs.formatNumber(user.user_achievements.length), 82, 202, 13));
+	templete = templete.replace('{{medals}}', getTextSVGPath(textToSVGRegular, libs.formatNumber(info.badges.length), 82, 202, 13));
 
 	//游戏时间
-	templete = templete.replace('{{playtime}}', getTextSVGPath(textToSVGRegular, libs.formatPlaytime(user.statistics.play_time), 126, 202, 13));
+	templete = templete.replace('{{playtime}}', getTextSVGPath(textToSVGRegular, libs.formatPlaytime(stats[mode].playtime), 126, 202, 13));
 
 	//全球排名/区内排名
-	let globalRanking = libs.formatNumber(user.statistics.global_rank, '#');
+	let globalRanking = libs.formatNumber(stats[mode].rank, '#');
 	templete = templete.replace('{{global-ranking}}', getTextSVGPath(textToSVGRegular, globalRanking, 268, 211, globalRanking.length < 10 ? 27 : 25));
 	templete = templete.replace(
 		'{{country-ranking}}',
-		getTextSVGPath(textToSVGRegular, libs.formatNumber(user.statistics.country_rank, '#'), 269, 277, 17)
+		getTextSVGPath(textToSVGRegular, libs.formatNumber(stats[mode].country_rank, '#'), 269, 277, 17)
 	);
 
 	//其他统计信息
-	const statsName = ['ranked_score', 'play_count', 'total_score', 'total_hits', 'replays_watched_by_others'];
+	const statsName = ['rscore', 'plays', 'tscore', 'total_hits', 'replay_views'];
 	let statsTextY = 227;
 	for (let stat of statsName) {
 		templete = templete.replace(
 			`{{${stat.replace(/_/g, '-')}}}`,
-			getTextSVGPath(textToSVGRegular, libs.formatNumber(user.statistics[stat]), 218, statsTextY, 10, 'right top')
+			getTextSVGPath(textToSVGRegular, libs.formatNumber(stats[mode].stat), 218, statsTextY, 10, 'right top')
 		);
 		statsTextY += 16;
 	}
 
 	//acc
-	templete = templete.replace('{{acc}}', getTextSVGPath(textToSVGRegular, user.statistics.hit_accuracy.toFixed(2).toString() + '%', 424, 202, 13));
+	templete = templete.replace('{{acc}}', getTextSVGPath(textToSVGRegular, stats[mode].acc.toFixed(2).toString() + '%', 424, 202, 13));
 	//最大连击
 	templete = templete.replace(
 		'{{max-combo}}',
-		getTextSVGPath(textToSVGRegular, libs.formatNumber(user.statistics.maximum_combo) + 'x', 483, 202, 13)
+		getTextSVGPath(textToSVGRegular, libs.formatNumber(stats[mode].max_combo) + 'x', 483, 202, 13)
 	);
-	//bp
+	//bp -> replace NULL with libs.formatNumber(Math.round(data.extras?.scoresBest[0]?.pp ?? 0))
 	templete = templete.replace(
 		'{{bp}}',
-		getTextSVGPath(textToSVGRegular, libs.formatNumber(Math.round(data.extras?.scoresBest[0]?.pp ?? 0)) + 'pp', 424, 249, 13)
+		getTextSVGPath(textToSVGRegular, 'NULL' + 'pp', 424, 249, 13)
 	);
-	//第一名
-	templete = templete.replace('{{first-place}}', getTextSVGPath(textToSVGRegular, libs.formatNumber(user.scores_first_count), 483, 249, 13));
+	//第一名 -> replace NULL with libs.formatNumber(user.scores_first_count)
+	templete = templete.replace('{{first-place}}', getTextSVGPath(textToSVGRegular, 'NULL', 483, 249, 13));
 
 	return minifySVG(templete);
 };
 
-export const getRenderedSVGMini = (data, avatarBase64, userCoverImageBase64) => {
+export const getRenderedSVGMini = (data, mode, avatarBase64, userCoverImageBase64) => {
 	let templete = getSVGTemplete('mini', data.options.language);
 	let user = data.user;
 
