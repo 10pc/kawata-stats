@@ -158,8 +158,9 @@ const minifySVG = (svg) => {
 		.replace(/\s+/g, ' ')}`;
 };
 
+// data(api, user config), mode(str)
 export const getRenderedSVGFull = (data, mode, avatarBase64, userCoverImageBase64) => {
-	let templete = getSVGTemplete('full', data.options.language);
+	let templete = getSVGTemplete('full', 'en');
 	let info = data.player.info;
 	let stats = data.player.stats;
 
@@ -171,13 +172,13 @@ export const getRenderedSVGFull = (data, mode, avatarBase64, userCoverImageBase6
 	}
 
 	//尺寸
-	templete = templete.replace('{{width}}', data.options.size.width);
-	templete = templete.replace('{{height}}', data.options.size.height);
+	templete = templete.replace('{{width}}', 550);
+	templete = templete.replace('{{height}}', 320);
 	//外边距
 	templete = setMargin(data, templete);
 
 	//动画
-	templete = templete.replace('{{fg-extra-class}}', data.options.animation ? 'animation-enabled' : '');
+	templete = templete.replace('{{fg-extra-class}}', 'true' ? 'animation-enabled' : '');
 
 	//颜色
 	templete = replaceCalcedColors(data, templete);

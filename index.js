@@ -65,6 +65,7 @@ app.get('/card', async function (req, res) {
 		? render.getRenderedSVGMini(userData, playmode, avatarBase64, userCoverImageBase64)
 		: render.getRenderedSVGFull(userData, playmode, avatarBase64, userCoverImageBase64);
 	res.send(svg);
+	console.log(svg)
 });
 
 app.listen(process.env.PORT || 3000);
