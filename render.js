@@ -43,7 +43,7 @@ const getTransformedXMini = (x, w, anchor = 'center') => {
 };
 
 export const getFlagSVG = (countryCode, x, y, h) => {
-	let svg = libs.getFlagSVGByCountryCode(countryCode);
+	let svg = libs.getFlagSVGByCountryCode(countryCode.toUpperCase());
 	let $ = cheerio.load(svg);
 	$('svg').attr('x', getTransformedX(x, h * 0.72, 'left'));
 	$('svg').attr('y', y);
@@ -51,7 +51,7 @@ export const getFlagSVG = (countryCode, x, y, h) => {
 	return $.html('svg');
 };
 export const getFlagSVGMini = (countryCode, x, y, h) => {
-	let svg = libs.getFlagSVGByCountryCode(countryCode);
+	let svg = libs.getFlagSVGByCountryCode(countryCode.toUpperCase());
 	let $ = cheerio.load(svg);
 	$('svg').attr('x', getTransformedXMini(x, h * 0.72, 'left'));
 	$('svg').attr('y', y);
@@ -163,6 +163,13 @@ export const getRenderedSVGFull = (data, mode, avatarBase64, userCoverImageBase6
 	let info = data.player.info;
 	let stats = data.player.stats;
 
+	const playmodes = {
+		std: '4',
+		taiko: '0',
+		catch: '1',
+		mania: '2',
+	}
+
 	//尺寸
 	templete = templete.replace('{{width}}', data.options.size.width);
 	templete = templete.replace('{{height}}', data.options.size.height);
@@ -197,8 +204,8 @@ export const getRenderedSVGFull = (data, mode, avatarBase64, userCoverImageBase6
 	templete = templete.replace('{{country}}', getTextSVGPath(textToSVGRegular, info.country, 161, 59.5, 14));
 
 	//模式
-	templete = templete.replace('{{playmode-icon}}', getPlaymodeSVG(data.current_mode, 130, 88, 15));
-	templete = templete.replace('{{playmode}}', getTextSVGPath(textToSVGRegular, libs.getPlaymodeFullName(data.current_mode), 150, 89, 12));
+	templete = templete.replace('{{playmode-icon}}', getPlaymodeSVG(playmodes[mode], 130, 88, 15));
+	templete = templete.replace('{{playmode}}', getTextSVGPath(textToSVGRegular, libs.getPlaymodeFullName(playmodes[mode]), 150, 89, 12));
 
 	//等级
 	// until api update, no way of showing level
@@ -222,27 +229,27 @@ export const getRenderedSVGFull = (data, mode, avatarBase64, userCoverImageBase6
 	let gradeTextX = 360.7;
 	for (let grade of gradesName) {
 		templete = templete.replace(
-			`{{${grade}-count}}`,
-			getTextSVGPath(textToSVGRegular, stats[mode].grade.toString(), gradeTextX, 153, 9, 'center middle')
+			`{{${grade}}}`,
+			getTextSVGPath(textToSVGRegular, stats[playmodes[mode]].grade.toString(), gradeTextX, 153, 9, 'center middle')
 		);
 		gradeTextX += 38.62;
 	}
 
 	//pp
-	templete = templete.replace('{{pp}}', getTextSVGPath(textToSVGRegular, libs.formatNumber(Math.round(stats[mode].pp)), 20, 202, 13));
+	templete = templete.replace('{{pp}}', getTextSVGPath(textToSVGRegular, libs.formatNumber(Math.round(stats[playmodes[mode]].pp)), 20, 202, 13));
 
 	//奖章
 	templete = templete.replace('{{medals}}', getTextSVGPath(textToSVGRegular, libs.formatNumber(info.badges.length), 82, 202, 13));
 
 	//游戏时间
-	templete = templete.replace('{{playtime}}', getTextSVGPath(textToSVGRegular, libs.formatPlaytime(stats[mode].playtime), 126, 202, 13));
+	templete = templete.replace('{{playtime}}', getTextSVGPath(textToSVGRegular, libs.formatPlaytime(stats[playmodes[mode]].playtime), 126, 202, 13));
 
 	//全球排名/区内排名
-	let globalRanking = libs.formatNumber(stats[mode].rank, '#');
+	let globalRanking = libs.formatNumber(stats[playmodes[mode]].rank, '#');
 	templete = templete.replace('{{global-ranking}}', getTextSVGPath(textToSVGRegular, globalRanking, 268, 211, globalRanking.length < 10 ? 27 : 25));
 	templete = templete.replace(
 		'{{country-ranking}}',
-		getTextSVGPath(textToSVGRegular, libs.formatNumber(stats[mode].country_rank, '#'), 269, 277, 17)
+		getTextSVGPath(textToSVGRegular, libs.formatNumber(stats[playmodes[mode]].country_rank, '#'), 269, 277, 17)
 	);
 
 	//其他统计信息
@@ -251,17 +258,17 @@ export const getRenderedSVGFull = (data, mode, avatarBase64, userCoverImageBase6
 	for (let stat of statsName) {
 		templete = templete.replace(
 			`{{${stat.replace(/_/g, '-')}}}`,
-			getTextSVGPath(textToSVGRegular, libs.formatNumber(stats[mode].stat), 218, statsTextY, 10, 'right top')
+			getTextSVGPath(textToSVGRegular, libs.formatNumber(stats[playmodes[mode]].stat), 218, statsTextY, 10, 'right top')
 		);
 		statsTextY += 16;
 	}
 
 	//acc
-	templete = templete.replace('{{acc}}', getTextSVGPath(textToSVGRegular, stats[mode].acc.toFixed(2).toString() + '%', 424, 202, 13));
+	templete = templete.replace('{{acc}}', getTextSVGPath(textToSVGRegular, stats[playmodes[mode]].acc.toFixed(2).toString() + '%', 424, 202, 13));
 	//最大连击
 	templete = templete.replace(
 		'{{max-combo}}',
-		getTextSVGPath(textToSVGRegular, libs.formatNumber(stats[mode].max_combo) + 'x', 483, 202, 13)
+		getTextSVGPath(textToSVGRegular, libs.formatNumber(stats[playmodes[mode]].max_combo) + 'x', 483, 202, 13)
 	);
 	//bp -> replace NULL with libs.formatNumber(Math.round(data.extras?.scoresBest[0]?.pp ?? 0))
 	templete = templete.replace(
