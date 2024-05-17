@@ -13,31 +13,20 @@
 		type="text/css" media="all" />
 	<meta name="description" content="Generate dynamic osu! stats signature card." />
 	<script src="vue.global.prod.js"></script>
-	<title>osu! Stats Signature</title>
+	<title>Kawata Stats Signature</title>
 </head>
 <body style="--base-hue: 333;">
 	<div class="container">
 		<div id="main">
-			<div class="title">osu! Stats Signature</div>
-			<div class="subtitle">{{$n('生成 osu! 签名档卡片')}}</div>
-			<div class="card" style="background: none; box-shadow: none; padding-top: 0px; padding-bottom: 10px; margin-top: 0px; ">
-				<div id="language">
-					<div :class="{ active: language == 'cn' }" class="language-btn" @click="language = 'cn'">
-						<div>中文</div>
-					</div>
-					<div :class="{ active: language == 'en' }" class="language-btn" @click="language = 'en'">
-						<div>English</div>
-					</div>
-				</div>
-			</div>
+			<div class="title">Kawata Stats Signature</div>
 			<div class="card">
-				<input class="textfield" v-model="username" :placeholder="$n('用户名 / UID')" />
+				<input class="textfield" v-model="username" :placeholder="$n('Username / UID')" />
 				<div id="playmode">
 					<div :class="{ active: playmode == 'std' }" class="mode-btn" @click="playmode = 'std'">
 						<svg width="40px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve"><g><circle fill="#FFFFFF" cx="250" cy="250" r="130"/><path fill="#FFFFFF" d="M250,140c29.4,0,57,11.4,77.8,32.2C348.6,193,360,220.6,360,250c0,29.4-11.4,57-32.2,77.8C307,348.6,279.4,360,250,360c-29.4,0-57-11.4-77.8-32.2C151.4,307,140,279.4,140,250c0-29.4,11.4-57,32.2-77.8C193,151.4,220.6,140,250,140 M250,100c-82.8,0-150,67.2-150,150s67.2,150,150,150s150-67.2,150-150S332.8,100,250,100L250,100z"/></g><g><path fill="#FFFFFF" d="M250,55c107.7,0,195,87.3,195,195s-87.3,195-195,195c-107.7,0-195-87.3-195-195S142.3,55,250,55 M250,15c-31.7,0-62.5,6.2-91.5,18.5c-28,11.8-53.1,28.8-74.7,50.3c-21.6,21.6-38.5,46.7-50.3,74.7C21.2,187.5,15,218.3,15,250s6.2,62.5,18.5,91.5c11.8,28,28.8,53.1,50.3,74.7c21.6,21.6,46.7,38.5,74.7,50.3c29,12.3,59.8,18.5,91.5,18.5s62.5-6.2,91.5-18.5c28-11.8,53.1-28.8,74.7-50.3c21.6-21.6,38.5-46.7,50.3-74.7c12.3-29,18.5-59.8,18.5-91.5s-6.2-62.5-18.5-91.5c-11.8-28-28.8-53.1-50.3-74.7c-21.6-21.6-46.7-38.5-74.7-50.3C312.5,21.2,281.7,15,250,15L250,15z"/></g></svg>
-						<div>std</div>
+						<div>std!rx</div>
 					</div>
-					<div :class="{ active: playmode == 'taiko' }" class="mode-btn" @click="playmode = 'taiko'">
+					<!--div :class="{ active: playmode == 'taiko' }" class="mode-btn" @click="playmode = 'taiko'">
 						<svg width="40px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve"><g><path fill="none" d="M225,153.2c-43.1,11.1-75,50.3-75,96.8c0,46.5,31.9,85.7,75,96.8V153.2z"/><path fill="none" d="M275,153.2v193.7c43.1-11.1,75-50.3,75-96.8C350,203.5,318.1,164.3,275,153.2z"/><path fill="#FFFFFF" d="M250,100c-82.8,0-150,67.2-150,150s67.2,150,150,150s150-67.2,150-150S332.8,100,250,100z M150,250c0-46.5,31.9-85.7,75-96.8v193.7C181.9,335.7,150,296.5,150,250z M275,346.8V153.2c43.1,11.1,75,50.3,75,96.8C350,296.5,318.1,335.7,275,346.8z"/></g><g><path fill="#FFFFFF" d="M250,55c107.7,0,195,87.3,195,195s-87.3,195-195,195c-107.7,0-195-87.3-195-195S142.3,55,250,55 M250,15c-31.7,0-62.5,6.2-91.5,18.5c-28,11.8-53.1,28.8-74.7,50.3c-21.6,21.6-38.5,46.7-50.3,74.7C21.2,187.5,15,218.3,15,250s6.2,62.5,18.5,91.5c11.8,28,28.8,53.1,50.3,74.7c21.6,21.6,46.7,38.5,74.7,50.3c29,12.3,59.8,18.5,91.5,18.5s62.5-6.2,91.5-18.5c28-11.8,53.1-28.8,74.7-50.3c21.6-21.6,38.5-46.7,50.3-74.7c12.3-29,18.5-59.8,18.5-91.5s-6.2-62.5-18.5-91.5c-11.8-28-28.8-53.1-50.3-74.7c-21.6-21.6-46.7-38.5-74.7-50.3C312.5,21.2,281.7,15,250,15L250,15z"/></g></svg>
 						<div>taiko</div>
 					</div>
@@ -48,7 +37,7 @@
 					<div :class="{ active: playmode == 'mania' }" class="mode-btn" @click="playmode = 'mania'">
 						<svg width="40px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve"><g><path fill="#FFFFFF" d="M250,401c-13.8,0-25-11.2-25-25V124c0-13.8,11.2-25,25-25c13.8,0,25,11.2,25,25v252C275,389.8,263.8,401,250,401z"/></g><g><path fill="#FFFFFF" d="M170,330c-13.8,0-25-11.2-25-25V195c0-13.8,11.2-25,25-25s25,11.2,25,25v110C195,318.8,183.8,330,170,330z"/></g><g><path fill="#FFFFFF" d="M330,330c-13.8,0-25-11.2-25-25V195c0-13.8,11.2-25,25-25c13.8,0,25,11.2,25,25v110C355,318.8,343.8,330,330,330z"/></g><g><path fill="#FFFFFF" d="M250,55c107.7,0,195,87.3,195,195s-87.3,195-195,195c-107.7,0-195-87.3-195-195S142.3,55,250,55 M250,15c-31.7,0-62.5,6.2-91.5,18.5c-28,11.8-53.1,28.8-74.7,50.3c-21.6,21.6-38.5,46.7-50.3,74.7C21.2,187.5,15,218.3,15,250s6.2,62.5,18.5,91.5c11.8,28,28.8,53.1,50.3,74.7c21.6,21.6,46.7,38.5,74.7,50.3c29,12.3,59.8,18.5,91.5,18.5s62.5-6.2,91.5-18.5c28-11.8,53.1-28.8,74.7-50.3c21.6-21.6,38.5-46.7,50.3-74.7c12.3-29,18.5-59.8,18.5-91.5s-6.2-62.5-18.5-91.5c-11.8-28-28.8-53.1-50.3-74.7c-21.6-21.6-46.7-38.5-74.7-50.3C312.5,21.2,281.7,15,250,15L250,15z"/></g></svg>
 						<div>mania</div>
-					</div>
+					</div-->
 				</div>
 				<div id="options">
 					<div class="option">
@@ -86,9 +75,9 @@
 						<div :class="{ active: cardmode == 'full' }" class="mode-btn" @click="cardmode = 'full'">
 							{{$n('完整')}}
 						</div>
-						<div :class="{ active: cardmode == 'mini' }" class="mode-btn" @click="cardmode = 'mini'">
+						<!--div :class="{ active: cardmode == 'mini' }" class="mode-btn" @click="cardmode = 'mini'">
 							{{$n('迷你')}}
-						</div>
+						</div-->
 					</div>
 					<div class="option" v-if="cardmode == 'full'">
 						<label style="margin-right: 10px;">{{$n('尺寸')}}</label>
@@ -125,10 +114,10 @@
 							</div>
 						</div>
 					</div>
-					<div class="option"  v-if="show_extra_settings">
+					<!--div class="option"  v-if="show_extra_settings">
 						<input type="checkbox" v-model="flop" id="flop"/>
 						<label for="flop">{{$n('左右反转封面图')}}</label>
-					</div>
+					</div-->
 					<div class="div-btn" @click="show_extra_settings = !show_extra_settings" v-bind:style="{opacity: show_extra_settings ? 1 : 0.5}">{{ show_extra_settings ? $n('▲ 隐藏额外选项') : $n('▼ 显示额外选项')}}</div>
 				</div>
 			</div>

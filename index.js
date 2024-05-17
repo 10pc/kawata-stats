@@ -21,7 +21,6 @@ app.get('/card', async function (req, res) {
 	let userData, avatarBase64, userCoverImage;
 
 	userData = await api.getUser(username, playmode);
-	console.log(userData)
 	if (userData.error) return res.send(render.getErrorSVG('Error: ' + userData.error));
 	avatarBase64 = await api.getImageBase64(`https://a.kawata.pw/${userData.player.info.id}`);
 	userCoverImage = await api.getImage(`https://kawata.pw/banners/${userData.player.info.id}`);
