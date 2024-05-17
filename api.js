@@ -14,6 +14,9 @@ export const getUser = async (username, playmode = 'std') => {
 		}
 	}
 	let response;
+
+	//https://api.kawata.pw/v1/get_player_scores?name=10pc&mode=4&scope=best&limit=1
+
 	try {
 		response = await got({
 			method: 'get',
@@ -34,14 +37,23 @@ export const getUser = async (username, playmode = 'std') => {
     let res = JSON.parse(body)
 	return res;
 }
+
 export const getImage = async (url) => {
 	const response = await got({
 		method: 'get',
 		responseType: 'buffer',
 		url,
 	});
-	return response.body;
+	if(response.body.toString() == '{"status":404}'){
+		return "0";
+	} else {
+		return response.body;
+	}
 }
+
+//Buffer 7b 22 73 74 61 74 75 73 22 3a 34 30 zenosu
+//Buffer ff d8 ff e1 00 16 45 78 69 66 00 00 femboyfeet
+//Buffer 7b 22 73 74 61 74 75 73 22 3a 34 30
 export const getImageBase64 = async (url) => {
 	const response = await got({
 		method: 'get',

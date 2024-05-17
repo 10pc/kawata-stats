@@ -19,17 +19,12 @@ app.get('/card', async function (req, res) {
 	const playmode = req.query.mode ?? 'std';
 
 	let userData, avatarBase64, userCoverImage;
-	let cacheKey = `${username}|${playmode}`;
 
-	if (req.headers['cache-control'] != 'no-cache' && cacheControl.has(cacheKey)) {
-		({ userData, avatarBase64, userCoverImage } = cacheControl.get(cacheKey));
-	} else {
-		userData = await api.getUser(username, playmode);
-		if (userData.error) return res.send(render.getErrorSVG('Error: ' + userData.error));
-		avatarBase64 = await api.getImageBase64(`https://a.kawata.pw/${userData.player.info.id}`);
-		userCoverImage = await api.getImage(`https://kawata.pw/banners/${userData.player.info.id}`);
-		cacheControl.set(cacheKey, { userData, avatarBase64, userCoverImage });
-	}
+	userData = await api.getUser(username, playmode);
+	console.log(userData)
+	if (userData.error) return res.send(render.getErrorSVG('Error: ' + userData.error));
+	avatarBase64 = await api.getImageBase64(`https://a.kawata.pw/${userData.player.info.id}`);
+	userCoverImage = await api.getImage(`https://kawata.pw/banners/${userData.player.info.id}`);
 
 	let blur = 0;
 	if (req.query.blur != undefined && req.query.blur == '') {
@@ -40,17 +35,20 @@ app.get('/card', async function (req, res) {
 	const flop = req.query.flop != undefined;
 	const isMini = req.query.mini != undefined && req.query.mini == 'true';
 	let userCoverImageBase64, width, height;
-	if (isMini) {
-		userCoverImageBase64 = await libs.getResizdCoverBase64(userCoverImage, 400, 120, blur, flop);
-		[width, height] = [400, 120];
-	} else {
-		userCoverImageBase64 = await libs.getResizdCoverBase64(userCoverImage, 550, 120, blur, flop);
-		[width, height] = [550, 320];
-	}
-	const margin = (req.query.margin ?? '0,0,0,0').split(',').map((x) => parseInt(x));
 
+	if(userCoverImage != "0"){
+		if (isMini) {
+			userCoverImageBase64 = await libs.getResizdCoverBase64(userCoverImage, 400, 120, blur, flop);
+			[width, height] = [400, 120];
+		} else {
+			userCoverImageBase64 = await libs.getResizdCoverBase64(userCoverImage, 550, 120, blur, flop);
+			[width, height] = [550, 320];
+		}
+	}
+
+	const margin = (req.query.margin ?? '0,0,0,0').split(',').map((x) => parseInt(x));
 	userData.options = {
-		language: req.query.lang ?? 'cn',
+		language: 'en',
 		animation: req.query.animation != undefined && req.query.animation != 'false',
 		size: {
 			width: parseFloat(req.query.w ?? width),
@@ -65,7 +63,7 @@ app.get('/card', async function (req, res) {
 		? render.getRenderedSVGMini(userData, playmode, avatarBase64, userCoverImageBase64)
 		: render.getRenderedSVGFull(userData, playmode, avatarBase64, userCoverImageBase64);
 	res.send(svg);
-	console.log(svg)
 });
 
 app.listen(process.env.PORT || 3000);
+console.log("listening on port 3000")
