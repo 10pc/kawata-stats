@@ -20,10 +20,11 @@ Just insert the obtained card SVG address into your personal homepage as an imag
 
 ## Full
 
-<a href="https://osu.ppy.sh/users/7562902/"><img src="https://kawata-stats.vercel.app/card?user=10pc&gamemode=std&mode=rx&lang=en&animation=true" width="550" /></a>
+<a href="https://kawata.pw/u/39736/"><img src="https://kawata-stats.vercel.app/card?user=femboyfeet&gamemode=std&mode=rx&lang=en&animation=true" width="550" /></a>
 
-<a href="https://osu.ppy.sh/users/21226378/"><img src="https://kawata-stats.vercel.app/card?user=dressurf&gamemode=mania&mode=vn&lang=en&animation=true" width="550" /></a>
+<a href="https://kawata.pw/u/39584/"><img src="https://kawata-stats.vercel.app/card?user=dressurf&gamemode=mania&mode=vn&lang=en&animation=true&mini=true" width="550" /></a>
 
 ## Mini
 
-<a href="https://osu.ppy.sh/users/21226378/"><img src="https://kawata-stats.vercel.app/card?user=zenosu&gamemode=std&mode=vn&blur=6&animation=true&mini=true" width="400" /></a>
+<a href="https://kawata.pw/u/22062/"><img src="https://kawata-stats.vercel.app/card?user=zenosu&gamemode=std&mode=vn&blur=6&animation=true&mini=true" width="400" /></a>
+<a href="https://kawata.pw/u/13633/"><img src="https://kawata-stats.vercel.app/card?user=10pc&gamemode=std&mode=rx&blur=6&animation=true&mini=true" width="400" /></a>
