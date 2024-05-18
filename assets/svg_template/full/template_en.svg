@@ -121,7 +121,7 @@
 				</g>
 			</g>
 			<g id="name" class="animated" style="animation-delay: 280ms;">
-				{{name}}{{supporter-tag}}
+				{{clan}}{{name}}
 			</g>
 			<g id="country" class="animated" style="animation-delay: 310ms;">
 				<g id="flag">
@@ -132,11 +132,12 @@
 			<g id="mode" class="animated" style="animation-delay: 340ms;">
 				{{playmode-icon}}
 				{{playmode}}
+				{{supporter-tag}}
 			</g>
 		</g>
 		<g id="details">
 			<g id="stats">
-				<g id="level" class="animated" style="animation-delay: 380ms;">
+				<!--g id="level" class="animated" style="animation-delay: 380ms;">
 					<g id="barbg">
 						<path class="cls-40" d="M20,135a2.5,2.5,0,0,0,2.5,2.5h235a2.5,2.5,0,0,0,0-5H22.5A2.5,2.5,0,0,0,20,135Z" transform="translate(0 2)" />
 					</g>
@@ -146,7 +147,7 @@
 					{{level-percent}}
 					{{level}}
 					<path class="cls-41" d="M291.732,126.541a3.842,3.842,0,0,0-3.464,0l-9.057,5.23a3.843,3.843,0,0,0-1.733,3v10.458a3.843,3.843,0,0,0,1.733,3l9.057,5.23a3.842,3.842,0,0,0,3.464,0l9.057-5.23a3.843,3.843,0,0,0,1.733-3V134.771a3.843,3.843,0,0,0-1.733-3Z" transform="translate(0 2)" />
-				</g>
+				</g-->
 				<g id="grades">
 					<g id="ssh-count" class="animated" style="animation-delay: 410ms;">
 						{{xh_count}}

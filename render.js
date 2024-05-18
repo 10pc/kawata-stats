@@ -159,26 +159,38 @@ const minifySVG = (svg) => {
 };
 
 // data(api, user config), mode(str)
-export const getRenderedSVGFull = (data, mode, avatarBase64, userCoverImageBase64) => {
+export const getRenderedSVGFull = (data, gamemode, mode, avatarBase64, userCoverImageBase64) => {
 	let templete = getSVGTemplete('full', 'en');
 	let info = data.player.info;
 	let stats = data.player.stats;
+	let options = data.options;
 
 	const playmodes = {
-		std: '4',
-		taiko: '0',
-		catch: '1',
-		mania: '2',
+		vn: {
+			std: '0',
+			taiko: '1',
+			catch: '2',
+			mania: '3',
+		},
+		rx: {
+			std: '4',
+			taiko: '5',
+			catch: '6',
+		},
+		ap: {
+			std: '8',
+		},
 	}
 
+
 	//尺寸
-	templete = templete.replace('{{width}}', 550);
-	templete = templete.replace('{{height}}', 320);
+	templete = templete.replace('{{width}}', options.size.width);
+	templete = templete.replace('{{height}}', options.size.height);
 	//外边距
 	templete = setMargin(data, templete);
 
 	//动画
-	templete = templete.replace('{{fg-extra-class}}', 'true' ? 'animation-enabled' : '');
+	templete = templete.replace('{{fg-extra-class}}', options.animation ? 'animation-enabled' : '');
 
 	//颜色
 	templete = replaceCalcedColors(data, templete);
@@ -187,14 +199,25 @@ export const getRenderedSVGFull = (data, mode, avatarBase64, userCoverImageBase6
 	templete = replaceRoundAvatarClipPath(data, false, templete);
 
 	//名字
-	templete = templete.replace('{{name}}', getTextSVGPath(boldFont, info.name, 130, 20, 28));
-	let nameWidth = getTextSVGMetrics(boldFont, info.name, 130, 20, 28).width;
-	//Support Tag
-	if (info.donor_end > 0) {
-		templete = templete.replace('{{supporter-tag}}', getSupporterSVG(130 + nameWidth + 10, 24, 22, 2));
+	//Clan Tag
+	let clanWidth;
+	if(!info.clan){
+		clanWidth = 0;
 	} else {
-		templete = templete.replace('{{supporter-tag}}', '');
+		clanWidth = getTextSVGMetrics(regularFont, `[${info.clan.tag}]`, 130, 25, 15).width;
 	}
+
+	if(info.clan){
+		templete = templete.replace('{{name}}', getTextSVGPath(boldFont, info.name, 135 + clanWidth, 20, 25));
+		templete = templete.replace('{{clan}}', getTextSVGPath(regularFont, `[${info.clan.tag}]`, 130, 25, 15));
+	} else {
+		templete = templete.replace('{{name}}', getTextSVGPath(boldFont, info.name, 130, 20, 25));
+		templete = templete.replace('{{clan}}', '');
+	};
+
+
+	templete = templete.replace('{{supporter-tag}}', getSupporterSVG(500, 80, 25, 1));
+	console.log(data.options.size.width);
 
 	templete = templete.replace('{{avatar-base64}}', avatarBase64);
 	templete = templete.replace('{{user-cover-base64}}', userCoverImageBase64);
@@ -202,8 +225,8 @@ export const getRenderedSVGFull = (data, mode, avatarBase64, userCoverImageBase6
 	templete = templete.replace('{{flag}}', getFlagSVG(info.country, 135, 56, 20));
 	templete = templete.replace('{{country}}', getTextSVGPath(regularFont, info.country.toUpperCase(), 161, 59.5, 14));
 
-	templete = templete.replace('{{playmode-icon}}', getPlaymodeSVG(playmodes[mode], 130, 88, 15));
-	templete = templete.replace('{{playmode}}', getTextSVGPath(regularFont, libs.getPlaymodeFullName(mode), 150, 89, 12));
+	templete = templete.replace('{{playmode-icon}}', getPlaymodeSVG(gamemode, 130, 88, 15));
+	templete = templete.replace('{{playmode}}', getTextSVGPath(regularFont, `${libs.getPlaymodeFullName(gamemode)}${mode}`, 150, 89, 12));
 
 	// until api update, no way of showing level
 	templete = templete.replace('{{level}}', getTextSVGPath(boldFont, 'NULL', 290, 143, 12, 'center middle'));
@@ -226,22 +249,22 @@ export const getRenderedSVGFull = (data, mode, avatarBase64, userCoverImageBase6
 	for (let grade of gradesName) {
 		templete = templete.replace(
 			`{{${grade}}}`,
-			getTextSVGPath(regularFont, stats[playmodes[mode]][grade].toString(), gradeTextX, 153, 9, 'center middle')
+			getTextSVGPath(regularFont, stats[playmodes[mode][gamemode]][grade].toString(), gradeTextX, 153, 9, 'center middle')
 		);
 		gradeTextX += 38.62;
 	}
 
-	templete = templete.replace('{{pp}}', getTextSVGPath(regularFont, libs.formatNumber(Math.round(stats[playmodes[mode]].pp)), 20, 202, 13));
+	templete = templete.replace('{{pp}}', getTextSVGPath(regularFont, libs.formatNumber(Math.round(stats[playmodes[mode][gamemode]].pp)), 20, 202, 13));
 
 	templete = templete.replace('{{medals}}', getTextSVGPath(regularFont, libs.formatNumber(info.badges.length), 82, 202, 13));
 
-	templete = templete.replace('{{playtime}}', getTextSVGPath(regularFont, libs.formatPlaytime(stats[playmodes[mode]].playtime), 126, 202, 13));
+	templete = templete.replace('{{playtime}}', getTextSVGPath(regularFont, libs.formatPlaytime(stats[playmodes[mode][gamemode]].playtime), 126, 202, 13));
 
-	let globalRanking = libs.formatNumber(stats[playmodes[mode]].rank, '#');
+	let globalRanking = libs.formatNumber(stats[playmodes[mode][gamemode]].rank, '#');
 	templete = templete.replace('{{global-ranking}}', getTextSVGPath(regularFont, globalRanking, 268, 211, globalRanking.length < 10 ? 27 : 25));
 	templete = templete.replace(
 		'{{country-ranking}}',
-		getTextSVGPath(regularFont, libs.formatNumber(stats[playmodes[mode]].country_rank, '#'), 269, 277, 17)
+		getTextSVGPath(regularFont, libs.formatNumber(stats[playmodes[mode][gamemode]].country_rank, '#'), 269, 277, 17)
 	);
 
 	const statsName = ['rscore', 'plays', 'tscore', 'total_hits', 'replay_views'];
@@ -249,31 +272,49 @@ export const getRenderedSVGFull = (data, mode, avatarBase64, userCoverImageBase6
 	for (let stat of statsName) {
 		templete = templete.replace(
 			`{{${stat}}}`,
-			getTextSVGPath(regularFont, libs.formatNumber(stats[playmodes[mode]][stat]), 218, statsTextY, 10, 'right top')
+			getTextSVGPath(regularFont, libs.formatNumber(stats[playmodes[mode][gamemode]][stat]), 218, statsTextY, 10, 'right top')
 		);
 		statsTextY += 16;
 	}
 
-	templete = templete.replace('{{acc}}', getTextSVGPath(regularFont, stats[playmodes[mode]].acc.toFixed(2).toString() + '%', 424, 202, 13));
+	templete = templete.replace('{{acc}}', getTextSVGPath(regularFont, stats[playmodes[mode][gamemode]].acc.toFixed(2).toString() + '%', 424, 202, 13));
 
 	templete = templete.replace(
 		'{{max-combo}}',
-		getTextSVGPath(regularFont, libs.formatNumber(stats[playmodes[mode]].max_combo) + 'x', 483, 202, 13)
+		getTextSVGPath(regularFont, libs.formatNumber(stats[playmodes[mode][gamemode]].max_combo) + 'x', 483, 202, 13)
 	);
 	//bp -> replace NULL with libs.formatNumber(Math.round(data.extras?.scoresBest[0]?.pp ?? 0))
 	templete = templete.replace(
 		'{{bp}}',
-		getTextSVGPath(regularFont, 'NULL' + 'pp', 424, 249, 13)
+		getTextSVGPath(regularFont, libs.formatNumber(Math.round(info.bp ?? 0)) + 'pp', 424, 249, 13)
 	);
 	//第一名 -> replace NULL with libs.formatNumber(user.scores_first_count)
-	templete = templete.replace('{{first-place}}', getTextSVGPath(regularFont, 'NULL', 483, 249, 13));
+	templete = templete.replace('{{first-place}}', getTextSVGPath(regularFont, '0', 483, 249, 13));
 
 	return templete;
 };
 
-export const getRenderedSVGMini = (data, mode, avatarBase64, userCoverImageBase64) => {
+export const getRenderedSVGMini = (data, gamemode, mode, avatarBase64, userCoverImageBase64) => {
 	let templete = getSVGTemplete('mini', data.options.language);
-	let user = data.user;
+	let info = data.player.info;
+	let stats = data.player.stats;
+
+	const playmodes = {
+		vn: {
+			std: '0',
+			taiko: '1',
+			catch: '2',
+			mania: '3',
+		},
+		rx: {
+			std: '4',
+			taiko: '5',
+			catch: '6',
+		},
+		ap: {
+			std: '8',
+		},
+	}
 
 	//尺寸
 	templete = templete.replace('{{width}}', data.options.size.width);
@@ -291,40 +332,45 @@ export const getRenderedSVGMini = (data, mode, avatarBase64, userCoverImageBase6
 	templete = replaceRoundAvatarClipPath(data, false, templete);
 
 	//名字
-	templete = templete.replace('{{name}}', getTextSVGPath(boldFont, user.username, 118, 14, 25));
+	if(!info.clan){
+		templete = templete.replace('{{name}}', getTextSVGPath(boldFont, info.name, 118, 14, 25));
+	} else {
+		templete = templete.replace('{{name}}', getTextSVGPath(boldFont, `[${info.clan.tag}] ${info.name}`, 118, 14, 25));
+	}
 
 	//头像和封面
 	templete = templete.replace('{{avatar-base64}}', avatarBase64);
 	templete = templete.replace('{{user-cover-base64}}', userCoverImageBase64);
 
 	//国旗
-	templete = templete.replace('{{flag}}', getFlagSVGMini(user.country_code, 368, 8, 18));
+	templete = templete.replace('{{flag}}', getFlagSVGMini(info.country, 368, 8, 18));
 
 	//区内排名
 	templete = templete.replace(
 		'{{country-ranking}}',
-		getTextSVGPath(regularFont, libs.formatNumber(user.statistics.country_rank, '#'), 360, 12, 10, 'right top')
+		getTextSVGPath(regularFont, libs.formatNumber(stats[playmodes[mode][gamemode]].country_rank, '#'), 360, 12, 10, 'right top')
 	);
 
 	//模式
-	templete = templete.replace('{{playmode-icon}}', getPlaymodeSVGMini(data.current_mode, 372, 30, 12));
+	templete = templete.replace('{{playmode-icon}}', getPlaymodeSVGMini(gamemode, 372, 30, 12));
 
 	//等级 -> replace NULL with user.statistics.level.current.toString()
 	templete = templete.replace(
 		'{{level}}',
-		getTextSVGPath(regularFont, 'lv.' + 'NULL', 369, 31, 10, 'right top')
+		getTextSVGPath(regularFont, `${libs.getPlaymodeFullName(gamemode)}${mode}`, 369, 31, 10, 'right top')
 	);
 
 	//全球排名
-	let globalRanking = libs.formatNumber(user.statistics.global_rank, '#');
+	let globalRanking = libs.formatNumber(stats[playmodes[mode][gamemode]].rank, '#');
 	templete = templete.replace('{{global-ranking}}', getTextSVGPath(regularFont, globalRanking, 120, 86, globalRanking.length < 10 ? 18 : 17));
 
 	//pp
-	templete = templete.replace('{{pp}}', getTextSVGPath(regularFont, libs.formatNumber(Math.round(user.statistics.pp)), 226, 81.5, 13));
+	templete = templete.replace('{{pp}}', getTextSVGPath(regularFont, libs.formatNumber(Math.round(stats[playmodes[mode][gamemode]].pp)), 226, 81.5, 13));
 	//acc
-	templete = templete.replace('{{acc}}', getTextSVGPath(regularFont, user.statistics.hit_accuracy.toFixed(2).toString() + '%', 281, 81.5, 13));
+	templete = templete.replace('{{acc}}', getTextSVGPath(regularFont, stats[playmodes[mode][gamemode]].acc.toFixed(2).toString() + '%', 281, 81.5, 13));
 	//游戏次数
-	templete = templete.replace('{{play-count}}', getTextSVGPath(regularFont, libs.formatNumber(user.statistics.play_count), 336, 81.5, 13));
+	templete = templete.replace('{{play-count}}', getTextSVGPath(regularFont, libs.formatNumber(stats[playmodes[mode][gamemode]].plays), 336, 81.5, 13));
+	templete = templete.replace('{{pctext}}', getTextSVGPath(regularFont, "Plays", 336.3, 66.5, 10));
 
 	return templete;
 };

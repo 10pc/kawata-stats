@@ -33,7 +33,8 @@ const app = {
 	data() {
 		return {
 			username: "",
-			playmode: "std",
+			gamemode: "std",
+			mode: "rx",
 			language: navigator.language.includes("zh") ? "cn" : "en",
 			cardmode: "full",
 			blur_checked: false,
@@ -69,7 +70,7 @@ const app = {
 			return Math.min(Math.max(val, min), max);
 		},
 		generate() {
-			let url = `/card?user=${encodeURI(this.username.trim())}&mode=${this.playmode}`;
+			let url = `/card?user=${encodeURI(this.username.trim())}&gamemode=${this.gamemode}&mode=${this.mode}`;
 			if (this.language != "cn") {
 				url += `&lang=${this.language}`;
 			}

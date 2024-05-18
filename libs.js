@@ -23,10 +23,10 @@ export const getPlaymodeSVG = (playmode) => {
 
 export const getPlaymodeFullName = (playmode) => {
 	const names = {
-		std: 'osu!',
-		catch: 'osu!catch',
-		mania: 'osu!mania',
-		taiko: 'osu!taiko'
+		std: 'std!',
+		catch: 'catch!',
+		mania: 'mania!',
+		taiko: 'taiko!'
 	};
 	return names[playmode];
 };

@@ -1,29 +1,55 @@
 import got from 'got';
 import cheerio from 'cheerio';
 
-export const getUser = async (username, playmode = 'std') => {
+export const getUser = async (username, gamemode = 'std', mode = 'vn') => {
 	const playmodes = {
-		std: '4',
-		taiko: '0',
-		catch: '1',
-		mania: '2',
+		vn: {
+			std: '0',
+			taiko: '1',
+			catch: '2',
+			mania: '3',
+		},
+		rx: {
+			std: '4',
+			taiko: '5',
+			catch: '6',
+		},
+		ap: {
+			std: '8',
+		},
 	}
-	if (!playmodes[playmode]){
+	if (!playmodes[mode][gamemode]){
 		return {
-			error: `Invalid playmode ${playmode}`
+			error: `Invalid playmode ${gamemode}+${mode}`
 		}
 	}
-	let response;
+	let response1, response2;
 
 	//https://api.kawata.pw/v1/get_player_scores?name=10pc&mode=4&scope=best&limit=1
 
 	try {
-		response = await got({
+		response1 = await got({
 			method: 'get',
 			url: `https://api.kawata.pw/v1/get_player_info?name=${username}&scope=all`,
 		});	
 	} catch (error) {
-		if (error.response.statusCode === 404){
+		if (error.response1.statusCode === 404){
+			return {
+				error: `User ${username} not found`
+			}
+		}
+		return {
+			error: `Unknown Error`
+		}
+	}
+
+	try {
+		response2 = await got({
+			method: 'get',
+			url: `https://api.kawata.pw/v1/get_player_scores?name=${username}&mode=${playmodes[mode][gamemode]}&scope=best&limit=1`,
+		});	
+	} catch (error) {
+		if (error.response2.statusCode === 404){
 			return {
 				error: `User ${username} not found`
 			}
@@ -33,8 +59,17 @@ export const getUser = async (username, playmode = 'std') => {
 		}
 	}
 	
-    const body = response.body;
-    let res = JSON.parse(body)
+    const body = response1.body;
+    const body2 = response2.body;
+    let ress = JSON.parse(body2);
+    let res = JSON.parse(body);
+
+    let bp;
+    if(!ress.scores[0]){
+        res.player.info.bp = 0;
+    } else {
+    	res.player.info.bp = ress.scores[0].pp;
+    };
 	return res;
 }
 

@@ -16,11 +16,13 @@ app.get('/card', async function (req, res) {
 		'Cache-Control': 'public, max-age=3600'
 	});
 	const username = req.query.user ?? '';
-	const playmode = req.query.mode ?? 'std';
+	const gamemode = req.query.gamemode ?? 'std';
+	const mode = req.query.mode ?? 'vn';
+
 
 	let userData, avatarBase64, userCoverImage;
 
-	userData = await api.getUser(username, playmode);
+	userData = await api.getUser(username, gamemode, mode);
 	if (userData.error) return res.send(render.getErrorSVG('Error: ' + userData.error));
 	avatarBase64 = await api.getImageBase64(`https://a.kawata.pw/${userData.player.info.id}`);
 	userCoverImage = await api.getImage(`https://kawata.pw/banners/${userData.player.info.id}`);
@@ -47,7 +49,6 @@ app.get('/card', async function (req, res) {
 
 	const margin = (req.query.margin ?? '0,0,0,0').split(',').map((x) => parseInt(x));
 	userData.options = {
-		language: 'en',
 		animation: req.query.animation != undefined && req.query.animation != 'false',
 		size: {
 			width: parseFloat(req.query.w ?? width),
@@ -59,8 +60,8 @@ app.get('/card', async function (req, res) {
 	};
 
 	const svg = isMini
-		? render.getRenderedSVGMini(userData, playmode, avatarBase64, userCoverImageBase64)
-		: render.getRenderedSVGFull(userData, playmode, avatarBase64, userCoverImageBase64);
+		? render.getRenderedSVGMini(userData, gamemode, mode, avatarBase64, userCoverImageBase64)
+		: render.getRenderedSVGFull(userData, gamemode, mode, avatarBase64, userCoverImageBase64);
 	res.send(svg);
 });
 

@@ -1,38 +1,29 @@
-# osu-stats-signature
+## kawata-stats
+# fork of [osu-stats-signature](https://github.com/solstice23/osu-stats-signature) by [solstice23]
 
-[![GitHub](https://img.shields.io/github/license/solstice23/osu-stats-signature?color=blue&style=for-the-badge)](https://github.com/solstice23/osu-stats-signature/blob/master/LICENSE) [![GitHub stars](https://img.shields.io/github/stars/solstice23/osu-stats-signature?color=ff69b4&style=for-the-badge)](https://github.com/solstice23/osu-stats-signature/stargazers) [![GitHub last commit](https://img.shields.io/github/last-commit/solstice23/osu-stats-signature?style=for-the-badge)](https://github.com/solstice23/osu-stats-signature/commits/master)
+[![GitHub](https://img.shields.io/github/license/10pc/kawata-stats?color=blue&style=for-the-badge)](https://github.com/10pc/kawata-stats/blob/master/LICENSE) [![GitHub stars](https://img.shields.io/github/stars/10pc/kawata-stats?color=ff69b4&style=for-the-badge)](https://github.com/10pc/kawata-stats/stargazers) [![GitHub last commit](https://img.shields.io/github/last-commit/10pc/kawata-stats?style=for-the-badge)](https://github.com/10pc/kawata-stats/commits/master)
 
-## 简介
+## Introduction
 
-osu-stats-signature 可以生成实时更新的 osu! 个人资料卡片/签名档。生成的卡片为 SVG，可用于个人主页。
+kawata-stats is a real-time osu! profile card generator. The generated cards are SVGs and can be used on personal homepages.
 
-## 使用
+## Usage
 
-该项目部署在 Vercel 上，前往 [osu-stats-signature.vercel.app](https://osu-stats-signature.vercel.app) 生成卡片。
+This project is deployed on Vercel, go to [kawata-stats.vercel.app](https://kawata-stats.vercel.app) to generate the card.
+Just insert the obtained card SVG address into your personal homepage as an image.
 
-将得到的卡片 SVG 地址作为图片插入到个人主页中即可。
+## TODO
 
-## 功能 & TODO
+- [ ] Wait for kawata api update (never)
 
-- [x] 获取 osu! 账号信息并生成卡片
-- [x] 获取并显示头像和用户背景图片
-- [x] 支持背景图片高斯模糊
-- [x] 过渡动画
-- [x] 显示 Supporter Tag
-- [x] 英文版卡片
-- [x] Mini 卡片
-- [x] 缓存机制
-- [ ] 生成个人 bp (最佳成绩) 卡片
-- [ ] 生成单个成绩详情卡片
-
-# 预览
+# Preview
 
 ## Full
 
-<a href="https://osu.ppy.sh/users/7562902/"><img src="https://osu-sig.vercel.app/card?user=mrekk&mode=std&lang=en&animation=true" width="550" /></a>
+<a href="https://osu.ppy.sh/users/7562902/"><img src="https://kawata-stats.vercel.app/card?user=10pc&gamemode=std&mode=rx&lang=en&animation=true" width="550" /></a>
 
-<a href="https://osu.ppy.sh/users/21226378/"><img src="https://osu-sig.vercel.app/card?user=solstice23&mode=std&animation=true" width="550" /></a>
+<a href="https://osu.ppy.sh/users/21226378/"><img src="https://kawata-stats.vercel.app/card?user=kfc&gamemode=std&mode=rx&lang=en&animation=true" width="550" /></a>
 
 ## Mini
 
-<a href="https://osu.ppy.sh/users/21226378/"><img src="https://osu-sig.vercel.app/card?user=solstice23&mode=std&blur=6&animation=true&mini=true" width="400" /></a>
+<a href="https://osu.ppy.sh/users/21226378/"><img src="https://kawata-stats.vercel.app/card?user=zenosu&mode=std&blur=6&animation=true&mini=true" width="400" /></a>
