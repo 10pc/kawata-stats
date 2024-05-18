@@ -1,5 +1,5 @@
-## kawata-stats
-# fork of [osu-stats-signature](https://github.com/solstice23/osu-stats-signature) by [solstice23]
+# kawata-stats
+## fork of [osu-stats-signature](https://github.com/solstice23/osu-stats-signature) by [solstice23]
 
 [![GitHub](https://img.shields.io/github/license/10pc/kawata-stats?color=blue&style=for-the-badge)](https://github.com/10pc/kawata-stats/blob/master/LICENSE) [![GitHub stars](https://img.shields.io/github/stars/10pc/kawata-stats?color=ff69b4&style=for-the-badge)](https://github.com/10pc/kawata-stats/stargazers) [![GitHub last commit](https://img.shields.io/github/last-commit/10pc/kawata-stats?style=for-the-badge)](https://github.com/10pc/kawata-stats/commits/master)
 
