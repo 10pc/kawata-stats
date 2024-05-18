@@ -295,7 +295,7 @@ export const getRenderedSVGFull = (data, gamemode, mode, avatarBase64, userCover
 };
 
 export const getRenderedSVGMini = (data, gamemode, mode, avatarBase64, userCoverImageBase64) => {
-	let templete = getSVGTemplete('mini', data.options.language);
+	let templete = getSVGTemplete('mini', 'en');
 	let info = data.player.info;
 	let stats = data.player.stats;
 
