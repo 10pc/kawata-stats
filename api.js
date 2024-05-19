@@ -31,31 +31,25 @@ export const getUser = async (username, gamemode = 'std', mode = 'vn') => {
 		response1 = await got({
 			method: 'get',
 			url: `https://api.kawata.pw/v1/get_player_info?name=${username}&scope=all`,
-		});	
-	} catch (error) {
-		if (error.response1.statusCode === 404){
-			return {
-				error: `User ${username} not found`
-			}
-		}
-		return {
-			error: `Unknown Error`
-		}
-	}
-
-	try {
+		});
 		response2 = await got({
 			method: 'get',
 			url: `https://api.kawata.pw/v1/get_player_scores?name=${username}&mode=${playmodes[mode][gamemode]}&scope=best&limit=1`,
-		});	
+		});
 	} catch (error) {
-		if (error.response2.statusCode === 404){
+		try {
+			response1 = await got({
+				method: 'get',
+				url: `https://api.kawata.pw/v1/get_player_info?id=${username}&scope=all`,
+			});
+			response2 = await got({
+				method: 'get',
+				url: `https://api.kawata.pw/v1/get_player_scores?id=${username}&mode=${playmodes[mode][gamemode]}&scope=best&limit=1`,
+			});	
+		} catch (error) {
 			return {
-				error: `User ${username} not found`
+				error: `User/ID ${username} not found`
 			}
-		}
-		return {
-			error: `Unknown Error`
 		}
 	}
 	

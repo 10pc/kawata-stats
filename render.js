@@ -217,7 +217,6 @@ export const getRenderedSVGFull = (data, gamemode, mode, avatarBase64, userCover
 
 
 	templete = templete.replace('{{supporter-tag}}', getSupporterSVG(500, 80, 25, 1));
-	console.log(data.options.size.width);
 
 	templete = templete.replace('{{avatar-base64}}', avatarBase64);
 	templete = templete.replace('{{user-cover-base64}}', userCoverImageBase64);
