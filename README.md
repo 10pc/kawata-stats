@@ -14,6 +14,7 @@ Just insert the obtained card SVG address into your personal homepage as an imag
 
 ## TODO
 
+- [ ] Add svg/png button
 - [ ] Wait for kawata api update (never)
 
 # Preview
