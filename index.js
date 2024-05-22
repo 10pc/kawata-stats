@@ -4,6 +4,8 @@ import NodeCache from 'node-cache';
 import * as libs from './libs.js';
 import * as render from './render.js';
 import * as api from './api.js';
+import pkg from 'convert-svg-to-png';
+const { convert } = pkg;
 
 const cacheControl = new NodeCache({ stdTTL: 600, checkperiod: 600, deleteOnExpire: true });
 const app = express();
@@ -11,14 +13,11 @@ const app = express();
 app.use('/', express.static(path.join(process.cwd(), '/static')));
 
 app.get('/card', async function (req, res) {
-	res.set({
-		'Content-Type': 'image/svg+xml',
-		'Cache-Control': 'public, max-age=3600'
-	});
+	res.set({'Cache-Control': 'public, max-age=3600'})
 	const username = req.query.user ?? '';
 	const gamemode = req.query.gamemode ?? 'std';
 	const mode = req.query.mode ?? 'vn';
-
+	const type = req.query.type ?? 'svg';
 
 	let userData, avatarBase64, userCoverImage;
 
@@ -60,9 +59,21 @@ app.get('/card', async function (req, res) {
 	};
 
 	const svg = isMini
-		? render.getRenderedSVGMini(userData, gamemode, mode, avatarBase64, userCoverImageBase64)
-		: render.getRenderedSVGFull(userData, gamemode, mode, avatarBase64, userCoverImageBase64);
-	res.send(svg);
+		? await render.getRenderedSVGMini(userData, gamemode, mode, avatarBase64, userCoverImageBase64)
+		: await render.getRenderedSVGFull(userData, gamemode, mode, avatarBase64, userCoverImageBase64);
+
+	if (type == 'svg'){
+		res.set({
+			'Content-Type': 'image/svg+xml'
+		});
+		res.send(svg);
+	} else {
+		res.set({
+			'Content-Type': 'image/png'
+		});
+		let output = await convert(svg);
+		res.send(output);
+	}
 });
 
 app.listen(process.env.PORT || 3000);
