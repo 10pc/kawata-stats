@@ -23,10 +23,12 @@
 		"colorjs.io": "0.0.3",
 		"convert-svg-to-png": "^0.6.4",
 		"express": "^4.17.1",
+		"fs": "^0.0.1-security",
 		"got": "^11.8.2",
 		"js-base64": "^3.7.2",
 		"node-cache": "^5.1.2",
 		"sharp": "^0.29.1",
+		"svg2img": "^1.0.0-beta.2",
 		"text-to-svg": "^3.1.5"
 	},
 	"devDependencies": {

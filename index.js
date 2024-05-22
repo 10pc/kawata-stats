@@ -4,8 +4,8 @@ import NodeCache from 'node-cache';
 import * as libs from './libs.js';
 import * as render from './render.js';
 import * as api from './api.js';
-import pkg from 'convert-svg-to-png';
-const { convert } = pkg;
+import convert from 'svg2img';
+import fs from 'fs';
 
 const cacheControl = new NodeCache({ stdTTL: 600, checkperiod: 600, deleteOnExpire: true });
 const app = express();
@@ -63,16 +63,18 @@ app.get('/card', async function (req, res) {
 		: await render.getRenderedSVGFull(userData, gamemode, mode, avatarBase64, userCoverImageBase64);
 
 	if (type == 'svg'){
-		res.set({
-			'Content-Type': 'image/svg+xml'
-		});
+		res.set({'Content-Type': 'image/svg+xml'});
 		res.send(svg);
 	} else {
-		res.set({
-			'Content-Type': 'image/png'
+		res.set({'Content-Type': 'image/png'});
+
+		await convert(svg, function(error, buffer) {
+			if (error) {
+	            res.status(500).send('Error converting SVG to PNG');
+	            return;
+	        }
+	        res.send(buffer);
 		});
-		let output = await convert(svg);
-		res.send(output);
 	}
 });
 
